@@ -1,4 +1,4 @@
-<h1>Welcome to Spoura</h1>
+<h1 class="bg-slate-200 font-bold underline text-4xl p-5 m-auto text-center">Welcome to Spoura</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
 <script lang="ts">
