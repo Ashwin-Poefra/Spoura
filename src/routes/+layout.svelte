@@ -14,7 +14,7 @@
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
             <li tabindex="0">
                 <a class="justify-between" href="/men">
-                  Men
+                  Nike
                   <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
                 </a>
                 <ul class="p-2 bg-white">
@@ -23,7 +23,7 @@
             </li>
             <li tabindex="0">
                 <a class="justify-between" href="/women">
-                Women
+                Adidas
                 <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
                 </a>
                 <ul class="p-2 bg-white">
@@ -32,7 +32,7 @@
             </li>
             <li tabindex="0">
                 <a class="justify-between" href="/kids">
-                Kids
+                Puma
                 <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
                 </a>
                 <ul class="p-2 bg-white">
@@ -41,14 +41,14 @@
             </li>
         </ul>
       </div>
-      <a class="btn btn-ghost normal-case text-4xl" href="/">Spoura</a>
+      <a class="btn btn-ghost font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900" href="/">Spoura</a>
     </div>
     <div class="navbar-center hidden lg:flex">
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
       <ul class="menu menu-horizontal px-1" tabindex="0" >
         <li tabindex="0">
             <a class="justify-between" href="/men">
-              Men
+              Nike
               <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
             </a>
             <ul class="p-2 bg-white">
@@ -57,7 +57,7 @@
         </li>
         <li>
             <a class="justify-between" href="/women">
-            Women
+            Adidas
             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
             </a>
             <ul class="p-2 bg-white">
@@ -66,7 +66,7 @@
         </li>
         <li tabindex="0">
             <a class="justify-between" href="/kids">
-            Kids
+              Puma
             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
             </a>
             <ul class="p-2 bg-white">
@@ -83,8 +83,8 @@
             <!-- svelte-ignore a11y-label-has-associated-control -->
             <label tabindex="0" class="btn btn-ghost btn-circle mr-4">
               <div class="indicator">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-                <span class="badge badge-sm indicator-item">8</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="filter: invert(56%) sepia(42%) saturate(7031%) hue-rotate(202deg) brightness(97%) contrast(99%);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                <span class="badge badge-sm bg-blue-900 indicator-item">8</span>
               </div>
             </label>
             <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
@@ -101,3 +101,26 @@
 </div>
 
 <slot />
+
+<footer class="footer p-10 bg-neutral text-neutral-content">
+  <div>
+    <span class="footer-title">Services</span> 
+    <a class="link link-hover">Branding</a>
+    <a class="link link-hover">Design</a>
+    <a class="link link-hover">Marketing</a>
+    <a class="link link-hover">Advertisement</a>
+  </div> 
+  <div>
+    <span class="footer-title">Company</span> 
+    <a class="link link-hover">About us</a>
+    <a class="link link-hover">Contact</a>
+    <a class="link link-hover">Jobs</a>
+    <a class="link link-hover">Press kit</a>
+  </div> 
+  <div>
+    <span class="footer-title">Legal</span> 
+    <a class="link link-hover">Terms of use</a>
+    <a class="link link-hover">Privacy policy</a>
+    <a class="link link-hover">Cookie policy</a>
+  </div>
+</footer>
