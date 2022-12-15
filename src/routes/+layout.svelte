@@ -102,25 +102,31 @@
 
 <slot />
 
-<footer class="footer p-10 bg-neutral text-neutral-content">
-  <div>
-    <span class="footer-title">Services</span> 
-    <a class="link link-hover">Branding</a>
-    <a class="link link-hover">Design</a>
-    <a class="link link-hover">Marketing</a>
-    <a class="link link-hover">Advertisement</a>
+<footer class="footer p-10 bg-neutral text-neutral-content bg-gradient-to-r from-blue-500 to-blue-900 ">
+  <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 ">
+    <div class="col-span-1 m-auto p-2">
+      <a class="btn btn-ghost font-extrabold text-transparent text-4xl bg-clip-text bg-white" href="/">Spoura</a>
+    </div>
+    <div class="col-span-2 m-auto p-2">
+      <span class="footer-title">Brands</span>
+      <br /> 
+      <a class="link link-hover p-4">Nike</a>
+      <a class="link link-hover p-4">Adidas</a>
+      <a class="link link-hover p-4">Puma</a>
+    </div> 
+    <div class="col-span-2 m-auto p-2">
+      <span class="footer-title">Navigation</span>
+      <br />
+      <a class="link link-hover p-4">All Products</a>
+      <a class="link link-hover p-4">About</a>
+      <a class="link link-hover p-4">Contact</a>
+    </div> 
+    <div class="col-span-2 m-auto p-2">
+      <span class="footer-title">Matthew Harvey</span> 
+      <br />
+      <a class="link link-hover p-4">Github</a>
+      <a class="link link-hover p-4">Portfolio</a>
+      <a class="link link-hover p-4">Linkedin</a>
+    </div>
   </div> 
-  <div>
-    <span class="footer-title">Company</span> 
-    <a class="link link-hover">About us</a>
-    <a class="link link-hover">Contact</a>
-    <a class="link link-hover">Jobs</a>
-    <a class="link link-hover">Press kit</a>
-  </div> 
-  <div>
-    <span class="footer-title">Legal</span> 
-    <a class="link link-hover">Terms of use</a>
-    <a class="link link-hover">Privacy policy</a>
-    <a class="link link-hover">Cookie policy</a>
-  </div>
 </footer>

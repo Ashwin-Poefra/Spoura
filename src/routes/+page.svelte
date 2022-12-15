@@ -14,7 +14,7 @@
 
 <!-- Featured Sales -->
 <h1 class="font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 text-center p-10 z-10">Featured Today</h1>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center p-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center p-10">
     <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
         <div class="card w-96 shadow-lg m-auto bg-center bg-cover" style='background-image: url("adidas_supernova2_womens.webp");'>
             <div class="card-body pb-52">
