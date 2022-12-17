@@ -13,10 +13,10 @@
 </div>
 
 <!-- Featured Sales -->
-<h1 class="font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 text-center p-10 z-10">Featured Today</h1>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center p-10">
+<h1 class="font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 text-center p-10 z-10">Featured</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center p-10 items-center m-auto max-w-7xl">
     <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
-        <div class="card w-96 shadow-lg m-auto bg-center bg-cover" style='background-image: url("adidas_supernova2_womens.webp");'>
+        <div class="card w-96 shadow-lg bg-center bg-cover" style='background-image: url("adidas_supernova2_womens.webp");'>
             <div class="card-body pb-52">
                 <h2 class="card-title">Adidas Supernova 2</h2>
                 <div class="badge bg-blue-700 border-0">Womens</div>
@@ -26,7 +26,7 @@
         </div>
     </a>
     <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
-        <div class="card w-96 shadow-lg m-auto bg-center bg-cover" style='background-image: url("Nike_ReactInfinityFlyknit3_Mens.webp");'>
+        <div class="card w-96 shadow-lg bg-center bg-cover" style='background-image: url("Nike_ReactInfinityFlyknit3_Mens.webp");'>
             <div class="card-body pb-52">
             <h2 class="card-title">Nike React Infinity Flyknit 3</h2>
             <div class="badge bg-blue-700 border-0">Mens</div>
@@ -36,7 +36,7 @@
         </div>
     </a>
     <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
-        <div class="card w-96 bg-base-100 shadow-lg m-auto bg-center bg-cover" style='background-image: url("Asics_GT-Xpress_Mens.jpg");'>
+        <div class="card w-96 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("Asics_GT-Xpress_Mens.jpg");'>
             <div class="card-body pb-52">
             <h2 class="card-title">Asics GT-Xpress</h2>
             <div class="badge bg-blue-700 border-0">Mens</div>
@@ -46,3 +46,233 @@
         </div>
     </a>
 </div>
+
+<!-- Collections -->
+<div class="grid grid-cols-1 md:grid-cols-2 justify-center pt-10 items-center m-auto">
+    <div class="w-auto h-96 bg-cover bg-center" style='background-image: url("https://brand.assets.reebok.com/image/upload/f_auto,q_auto,fl_lossy/reebok_enGB/Images/FW22_Cardi-B_December-Drop_Sustain_Teaser-Carousel_3_tcm265-965885.jpg")' alt="Reebok next-level" >
+        <br />
+    </div>
+    <div class="w-auto h-96 bg-cover bg-center" style='background-image: url("https://brand.assets.reebok.com/image/upload/f_auto,q_auto,fl_lossy/reebok_enGB/Images/22FW_Mountain-Research_FD_Teaser-Carousel-Card-Background_tcm265-971479.jpg")' alt="Reebok mountains">
+        <br />
+    </div>
+</div>
+
+<!-- Idea Search -->
+<div class="mb-10 grid grid-cols-1 justify-center p-10 items-center m-auto bg-gradient-to-r from-blue-700 to-pink-500">
+    <p class="text-center font-serif font-semibold text-3xl p-2 text-white">Have an idea?</p>
+    <input placeholder="Search products" class="text-center max-w-2xl m-auto rounded-lg p-2 shadow-lg" />
+</div>
+
+<!-- Mens Womens Kids -->
+<script>
+    let m_vis = true;
+    let w_vis = false;
+    let k_vis = false;
+    function changeM () {m_vis = true; w_vis = false; k_vis = false;}
+    function changeW () {m_vis = false; w_vis = true; k_vis = false;}
+    function changeK () {m_vis = false; w_vis = false; k_vis = true;}
+</script>
+<section class="grid grid-cols-1 lg:grid-cols-3 max-w-7xl rounded-lg justify-center p-10 items-center m-auto">
+    <div class="p-6 m-auto rounded-lg text-center">
+        <h1 class="mb-5 text-5xl font-bold">Trending</h1>
+        <img src="/flame.png" alt="flame" class="w-20 m-auto pb-16" />
+        <button on:click={changeM} class="px-6 py-2 my-2 btn bg-gradient-to-r from-blue-500 to-blue-900  border-0">Mens</button><br />
+        <button on:click={changeW} class="px-6 py-2 my-2 btn bg-gradient-to-r from-blue-500 to-blue-900 border-0">Womens</button><br />
+        <button on:click={changeK} class="px-6 py-2 my-2 btn bg-gradient-to-r from-blue-500 to-blue-900 border-0">Kids</button><br />
+    </div>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="col-span-2 bg-white">
+        {#if m_vis}
+            <div id="mens" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style="transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1)">
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/t77497s3.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/u72886s3.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/c21351s4.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/m86222s4.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/111088s3.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/455489s3.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {/if}
+        {#if w_vis}
+            <div id="womens" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style="transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1)">
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/t77497s3.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/u72886s3.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/c21351s4.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/m86222s4.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/111088s3.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/455489s3.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {/if}
+        {#if k_vis}
+            <div id="kids" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style="transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1)">
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/t77497s3.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/u72886s3.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/c21351s4.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/m86222s4.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/111088s3.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/products" class="transition ease-in-out delay-15 hover:scale-110 duration-300">
+                    <div class="card w-96 md:w-60 bg-base-100 shadow-lg bg-center bg-cover" style='background-image: url("https://xcdn.next.co.uk/common/items/default/default/itemimages/altitemzoom/455489s3.jpg?im=Resize,width=364");'>
+                        <div class="card-body pb-52">
+                        <h2 class="card-title">Asics GT-Xpress</h2>
+                        <div class="badge bg-blue-700 border-0">Mens</div>
+                        <div class="badge"><s>was £49.99</s></div>
+                        <div class="badge badge-secondary">NOW £34.99</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {/if}
+    </div>
+</section>
