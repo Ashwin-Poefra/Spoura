@@ -8,17 +8,6 @@ datasource db {
   relationMode = "prisma"
 }
 
-model Product {
-  id     Int     @id @default(autoincrement())
-  name   String  @db.VarChar(50)
-  price  Decimal @db.Decimal(10, 2)
-  imgurl Json
-  colour Json
-  fit    Json
-  size   Json
-  review Json
-}
-
 model User {
   id           Int     @id @default(autoincrement())
   name         String?
@@ -31,4 +20,30 @@ model User {
 enum Role {
   USER
   ADMIN
+}
+
+model Collection {
+  id     Int     @id @default(autoincrement())
+  name   String  @db.VarChar(50)
+  url_slug String?
+  products Product[]
+
+  @@unique([id, name])
+}
+
+model Product {
+  id     Int     @id @default(autoincrement())
+  name   String  @db.VarChar(50)
+  brand String @db.VarChar(50)
+  price  Decimal @db.Decimal(10, 2)
+  imgurl Json
+  collection Collection? @relation(fields: [col_id, col_name], references: [id, name])
+  col_id Int?
+  col_name String?
+  colour Json
+  fit    Json
+  size   Json
+  review Json
+
+  @@index([col_id, col_name])
 }
