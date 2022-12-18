@@ -1,34 +1,31 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
 model Product {
-  id Int @id @default(autoincrement())
-  name String @db.VarChar(50)
-  price Decimal @db.Decimal()
+  id     Int     @id @default(autoincrement())
+  name   String  @db.VarChar(50)
+  price  Decimal @db.Decimal(10, 2)
   imgurl Json
   colour Json
-  fit Json
-  size Json
+  fit    Json
+  size   Json
   review Json
 }
 
 model User {
-  id           Int              @id @default(autoincrement())
+  id           Int     @id @default(autoincrement())
   name         String?
-  email        String           @unique
-  profileViews Int              @default(0)
-  role         Role             @default(USER)
-  purchase Json
+  email        String  @unique
+  profileViews Int     @default(0)
+  role         Role    @default(USER)
+  purchase     Json
 }
 
 enum Role {
