@@ -15,9 +15,12 @@ export async function load({ params }: any) {
         },
     })
 
+    console.log(collection);
+
     if (collection) {
         return {
             collection: {
+                "collection": collection,
                 "id": collection?.id,
                 "name": collection?.name,
                 "url_slug": collection?.url_slug,
