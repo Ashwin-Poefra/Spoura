@@ -43,8 +43,8 @@
 
 <!-- Featured Sales -->
 <h1 class="font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 text-center p-10 z-10">Featured</h1>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center p-8 m-auto max-w-7xl items-stretch">
-    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 p-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center md:p-8 m-auto max-w-7xl items-stretch">
+    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10">
         <div class="card w-96 md:w-80 shadow-lg bg-center bg-cover ring-2 rounded-lg" style='background-image: url("adidas_supernova2_womens.webp");'>
             <div class="card-body pb-52">
                 <h2 class="card-title">Adidas Supernova 2</h2>
@@ -54,7 +54,7 @@
             </div>
         </div>
     </a>
-    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 p-10">
+    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10">
         <div class="card w-96 md:w-80 shadow-lg bg-center bg-cover ring-2 rounded-lg" style='background-image: url("Nike_ReactInfinityFlyknit3_Mens.webp");'>
             <div class="card-body pb-52">
             <h2 class="card-title">Nike React Infinity Flyknit 3</h2>
@@ -64,7 +64,7 @@
             </div>
         </div>
     </a>
-    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 p-10">
+    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10">
         <div class="card w-96 md:w-80 shadow-lg bg-center bg-cover ring-2 rounded-lg" style='background-image: url("Asics_GT-Xpress_Mens.jpg");'>
             <div class="card-body pb-52">
             <h2 class="card-title">Asics GT-Xpress</h2>
@@ -74,7 +74,7 @@
             </div>
         </div>
     </a>
-    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 p-10">
+    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10">
         <div class="card w-96 md:w-80 shadow-lg bg-center bg-cover ring-2 rounded-lg" style='background-image: url("adidas_supernova2_womens.webp");'>
             <div class="card-body pb-52">
                 <h2 class="card-title">Adidas Supernova 2</h2>
@@ -84,7 +84,7 @@
             </div>
         </div>
     </a>
-    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 p-10">
+    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10">
         <div class="card w-96 md:w-80 shadow-lg bg-center bg-cover ring-2 rounded-lg" style='background-image: url("Nike_ReactInfinityFlyknit3_Mens.webp");'>
             <div class="card-body pb-52">
             <h2 class="card-title">Nike React Infinity Flyknit 3</h2>
@@ -94,7 +94,7 @@
             </div>
         </div>
     </a>
-    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 p-10">
+    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10">
         <div class="card w-96 md:w-80 shadow-lg bg-center bg-cover ring-2 rounded-lg" style='background-image: url("Asics_GT-Xpress_Mens.jpg");'>
             <div class="card-body pb-52">
             <h2 class="card-title">Asics GT-Xpress</h2>
