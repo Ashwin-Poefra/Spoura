@@ -20,7 +20,6 @@ export async function load({ params }: any) {
     if (collection) {
         return {
             collection: {
-                "collection": collection,
                 "id": collection?.id,
                 "name": collection?.name,
                 "url_slug": collection?.url_slug,

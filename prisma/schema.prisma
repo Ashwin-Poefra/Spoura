@@ -26,7 +26,7 @@ model Collection {
   id     Int     @id @default(autoincrement())
   name   String  @db.VarChar(50)
   url_slug String?
-  banner String?
+  banner String
   products Product[]
 
   @@unique([id, name])
