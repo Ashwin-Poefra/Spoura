@@ -38,7 +38,6 @@
 	"dependencies": {
 		"@prisma/client": "^4.7.1",
 		"daisyui": "^2.43.2",
-		"owl.carousel": "^2.3.4",
 		"prisma": "^4.7.1"
 	}
 }

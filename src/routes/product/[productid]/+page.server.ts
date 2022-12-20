@@ -18,6 +18,7 @@ export async function load({ params }: any) {
                 "id": product?.id,
                 "name": product?.name,
                 "price": product?.price.toString(),
+                "category": product?.category,
                 "imgurl": product?.imgurl,
                 "colour": product?.colour,
                 "fit": product?.fit,

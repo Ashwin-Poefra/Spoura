@@ -10,6 +10,7 @@
         <h1>{product.id}</h1>
         <h1>{product.name}</h1>
         <h1>{product.price}</h1>
+        <h1>{product.category}</h1>
         <img src={product.imgurl.main} alt={product.name} class="w-96 m-auto">
     </div>
 {:else}

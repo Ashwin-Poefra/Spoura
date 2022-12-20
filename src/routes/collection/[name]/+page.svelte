@@ -4,12 +4,16 @@
     const collection = data.collection;
     const name = collection.name;
     const products = JSON.parse(collection.products);
+    const banner = collection.banner;
 </script>
 
 {#if collection}
-    <div class="p-10 text-center text-3xl m-auto">
-        <h1>{name}</h1>
+<div class="hero backdrop-brightness-50 bg-fixed bg-center bg-cover" style='background-image: url("{banner}"); min-height: 50vh'>
+    <div class="hero-overlay bg-opacity-40 bg-blend-darken"></div>
+    <div class="hero-content grid grid-cols-1 lg:flex-row-reverse">
+        <h1 class="font-bold text-white text-8xl">{name}</h1>
     </div>
+</div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center p-8 m-auto max-w-7xl items-stretch">
         {#each products as product}
             <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 p-10">

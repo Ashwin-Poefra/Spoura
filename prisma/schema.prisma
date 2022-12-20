@@ -26,6 +26,7 @@ model Collection {
   id     Int     @id @default(autoincrement())
   name   String  @db.VarChar(50)
   url_slug String?
+  banner String?
   products Product[]
 
   @@unique([id, name])
@@ -35,6 +36,7 @@ model Product {
   id     Int     @id @default(autoincrement())
   name   String  @db.VarChar(50)
   brand String @db.VarChar(50)
+  category String @default("mens")
   price  Decimal @db.Decimal(10, 2)
   imgurl Json
   collection Collection? @relation(fields: [col_id, col_name], references: [id, name])

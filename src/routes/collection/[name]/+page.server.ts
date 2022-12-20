@@ -21,6 +21,7 @@ export async function load({ params }: any) {
                 "id": collection?.id,
                 "name": collection?.name,
                 "url_slug": collection?.url_slug,
+                "banner": collection?.banner,
                 "products": JSON.stringify(collection?.products),
             }
         };
