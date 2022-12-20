@@ -5,6 +5,7 @@
     const name = collection.name;
     const products = JSON.parse(collection.products);
     const banner = collection.banner;
+    console.log(collection);
 </script>
 
 {#if collection}
