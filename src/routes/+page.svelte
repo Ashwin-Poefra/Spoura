@@ -7,22 +7,19 @@
     function changeK () {m_vis = false; w_vis = false; k_vis = true;}
     /** @type {import('./$types').PageData} */
     export let data;
-    console.log(data);
     const featured = data.featured;
-    console.log(featured);
 </script>
 
 <!-- Hero -->
-<div class="hero backdrop-brightness-50 bg-fixed bg-center bg-cover" style='background-image: url("/allshoes.webp"); min-height: 95vh'>
-    <div class="hero-overlay bg-opacity-90 bg-blend-darken"></div>
+<div class="hero bg-fixed bg-center bg-cover" style='background-image: url("/home_banner.jpg"); min-height: 100vh'>
     <div class="hero-content grid grid-cols-1 md:grid-cols-2 lg:flex-row-reverse">
-        <div class="p-10 ml-2 bg-white rounded-3xl shadow-md bg-opacity-100 relative">
+        <div class="p-10 ml-2 rounded-3xl bg-opacity-100 relative">
             <h1 class="mb-5 text-5xl font-bold">Welcome to <em class="font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900">Spoura</em></h1>
             <p class="mb-5 text-3xl">Selling the best shoes by the biggest brands since 2013.</p>
             <button class="btn bg-gradient-to-r from-blue-500 to-blue-900 border-0 rounded-lg">All Products</button>
-            <img class="absolute right-4 bottom-4 w-40 h-10" src="/puma_adidas_nike.webp" alt="Puma Adidas Nike" />
+            <img class="absolute right-4 bottom-4 w-40 h-10" src="/brands.png" alt="Puma Adidas Nike" />
         </div>
-        <img src="/banner-right-image.png" class="rounded-lg" alt="Hero Shoe" />
+        <div />
     </div>
 </div>
 
