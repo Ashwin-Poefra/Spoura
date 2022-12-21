@@ -1,10 +1,15 @@
-<script>
+<script lang="ts">
     let m_vis = true;
     let w_vis = false;
     let k_vis = false;
     function changeM () {m_vis = true; w_vis = false; k_vis = false;}
     function changeW () {m_vis = false; w_vis = true; k_vis = false;}
     function changeK () {m_vis = false; w_vis = false; k_vis = true;}
+    /** @type {import('./$types').PageData} */
+    export let data;
+    console.log(data);
+    const featured = data.featured;
+    console.log(featured);
 </script>
 
 <!-- Hero -->
@@ -43,67 +48,18 @@
 
 <!-- Featured Sales -->
 <h1 class="font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 text-center p-10 z-10">Featured</h1>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center md:p-8 m-auto max-w-7xl items-stretch">
-    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10">
-        <div class="card w-96 md:w-80 shadow-lg bg-center bg-cover ring-2 rounded-lg" style='background-image: url("adidas_supernova2_womens.webp");'>
-            <div class="card-body pb-52">
-                <h2 class="card-title">Adidas Supernova 2</h2>
-                <div class="badge bg-blue-700 border-0">Womens</div>
-                <div class="badge"><s>was £57.99</s></div>
-                <div class="badge badge-secondary">NOW £37.99</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center md:p-14 m-auto max-w-7xl items-stretch">
+    {#each JSON.parse(featured) as product}
+        <a href="/product/{product.id}" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10 m-auto">
+            <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl.main});'>
+                <div class="card-body pb-36">
+                    <h2 class="card-title">{product.name}</h2>
+                    <div class="badge bg-blue-700 border-0">{product.category}</div>
+                    <div class="badge badge-secondary">£{product.price}</div>
+                </div>
             </div>
-        </div>
-    </a>
-    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10">
-        <div class="card w-96 md:w-80 shadow-lg bg-center bg-cover ring-2 rounded-lg" style='background-image: url("Nike_ReactInfinityFlyknit3_Mens.webp");'>
-            <div class="card-body pb-52">
-            <h2 class="card-title">Nike React Infinity Flyknit 3</h2>
-            <div class="badge bg-blue-700 border-0">Mens</div>
-            <div class="badge"><s>was £69.99</s></div>
-            <div class="badge badge-secondary">NOW £49.99</div>
-            </div>
-        </div>
-    </a>
-    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10">
-        <div class="card w-96 md:w-80 shadow-lg bg-center bg-cover ring-2 rounded-lg" style='background-image: url("Asics_GT-Xpress_Mens.jpg");'>
-            <div class="card-body pb-52">
-            <h2 class="card-title">Asics GT-Xpress</h2>
-            <div class="badge bg-blue-700 border-0">Mens</div>
-            <div class="badge"><s>was £49.99</s></div>
-            <div class="badge badge-secondary">NOW £34.99</div>
-            </div>
-        </div>
-    </a>
-    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10">
-        <div class="card w-96 md:w-80 shadow-lg bg-center bg-cover ring-2 rounded-lg" style='background-image: url("adidas_supernova2_womens.webp");'>
-            <div class="card-body pb-52">
-                <h2 class="card-title">Adidas Supernova 2</h2>
-                <div class="badge bg-blue-700 border-0">Womens</div>
-                <div class="badge"><s>was £57.99</s></div>
-                <div class="badge badge-secondary">NOW £37.99</div>
-            </div>
-        </div>
-    </a>
-    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10">
-        <div class="card w-96 md:w-80 shadow-lg bg-center bg-cover ring-2 rounded-lg" style='background-image: url("Nike_ReactInfinityFlyknit3_Mens.webp");'>
-            <div class="card-body pb-52">
-            <h2 class="card-title">Nike React Infinity Flyknit 3</h2>
-            <div class="badge bg-blue-700 border-0">Mens</div>
-            <div class="badge"><s>was £69.99</s></div>
-            <div class="badge badge-secondary">NOW £49.99</div>
-            </div>
-        </div>
-    </a>
-    <a href="/products" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10">
-        <div class="card w-96 md:w-80 shadow-lg bg-center bg-cover ring-2 rounded-lg" style='background-image: url("Asics_GT-Xpress_Mens.jpg");'>
-            <div class="card-body pb-52">
-            <h2 class="card-title">Asics GT-Xpress</h2>
-            <div class="badge bg-blue-700 border-0">Mens</div>
-            <div class="badge"><s>was £49.99</s></div>
-            <div class="badge badge-secondary">NOW £34.99</div>
-            </div>
-        </div>
-    </a>
+        </a>
+    {/each}
 </div>
 
 <!-- Collections -->

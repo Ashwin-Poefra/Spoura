@@ -15,8 +15,6 @@ export async function load({ params }: any) {
         },
     })
 
-    console.log(collection);
-
     if (collection) {
         return {
             collection: {
