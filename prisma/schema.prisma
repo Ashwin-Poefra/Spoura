@@ -17,35 +17,38 @@ model User {
   purchase     Json
 }
 
-enum Role {
-  USER
-  ADMIN
-}
-
 model Collection {
-  id     Int     @id @default(autoincrement())
-  name   String  @db.VarChar(50)
-  url_slug String?
-  banner String
+  id       Int       @id @default(autoincrement())
+  name     String    @db.VarChar(50)
+  url_slug String
+  banner   String
   products Product[]
 
-  @@unique([id, name])
+  @@unique([id, name, url_slug, banner])
 }
 
 model Product {
-  id     Int     @id @default(autoincrement())
-  name   String  @db.VarChar(50)
-  brand String @db.VarChar(50)
-  category String @default("mens")
-  price  Decimal @db.Decimal(10, 2)
-  imgurl Json
-  collection Collection? @relation(fields: [col_id, col_name], references: [id, name])
-  col_id Int?
+  id         Int          @id @default(autoincrement())
+  name       String       @db.VarChar(50)
+  price      Decimal      @db.Decimal(10, 2)
+  category   String       @default("mens")
+  collection Collection? @relation(fields: [col_id, col_name, col_slug, col_banner], references: [id, name, url_slug, banner])
+  col_id  Int?
   col_name String?
-  colour Json
-  fit    Json
-  size   Json
-  review Json
+  col_slug String?
+  col_banner  String?
+  imgurl     Json
+  colour     Json
+  fit        Json
+  size       Json
+  review     Json
+  brand      String       @db.VarChar(50)
 
-  @@index([col_id, col_name])
+  @@index([col_id, col_name, col_slug, col_banner])
+}
+
+
+enum Role {
+  USER
+  ADMIN
 }
