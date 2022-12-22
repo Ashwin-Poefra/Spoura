@@ -568,23 +568,24 @@
     <div class="col-span-2 m-auto p-2">
       <span class="footer-title">Brands</span>
       <br /> 
-      <a class="link link-hover p-4">Nike</a>
-      <a class="link link-hover p-4">Adidas</a>
-      <a class="link link-hover p-4">Puma</a>
+      <a class="link link-hover p-4" href="/nike">Nike</a>
+      <a class="link link-hover p-4" href="/adidas">Adidas</a>
+      <a class="link link-hover p-4" href="/puma">Puma</a>
+      <a class="link link-hover p-4" href="/under-armour">Under Armour</a>
     </div> 
     <div class="col-span-2 m-auto p-2">
       <span class="footer-title">Navigation</span>
       <br />
-      <a class="link link-hover p-4">All Products</a>
-      <a class="link link-hover p-4">About</a>
-      <a class="link link-hover p-4">Contact</a>
+      <a class="link link-hover p-4" href="/all">All Products</a>
+      <a class="link link-hover p-4" href="/about">About</a>
+      <a class="link link-hover p-4" href="/contact">Contact</a>
     </div> 
     <div class="col-span-2 m-auto p-2">
       <span class="footer-title">Matthew Harvey</span> 
       <br />
-      <a class="link link-hover p-4">Github</a>
-      <a class="link link-hover p-4">Portfolio</a>
-      <a class="link link-hover p-4">Linkedin</a>
+      <a class="link link-hover p-4" href="https://github.com/Matthew-Harvey" target="_blank" rel="noreferrer">Github</a>
+      <a class="link link-hover p-4" href="https://mharvey.vercel.app/" target="_blank" rel="noreferrer">Portfolio</a>
+      <a class="link link-hover p-4" href="https://www.linkedin.com/in/m-harvey/" target="_blank" rel="noreferrer">Linkedin</a>
     </div>
   </div> 
 </footer>

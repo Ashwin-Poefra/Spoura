@@ -16,9 +16,31 @@ export async function load() {
         },
     });
 
-    if (featured) {
+    const trend_men = await prisma.product.findMany({
+        take: 4,
+        where: {
+            category: 'Men'
+        },
+    });
+    const trend_women = await prisma.product.findMany({
+        take: 4,
+        where: {
+            category: 'Women'
+        },
+    });
+    const trend_kids = await prisma.product.findMany({
+        take: 4,
+        where: {
+            category: 'Kids'
+        },
+    });
+
+    if (featured && trend_men && trend_women && trend_kids) {
         return {
-            featured: JSON.stringify(featured)
+            featured: JSON.stringify(featured),
+            men: JSON.stringify(trend_men),
+            women: JSON.stringify(trend_women),
+            kids: JSON.stringify(trend_kids),
         };
     } else {
         return {
