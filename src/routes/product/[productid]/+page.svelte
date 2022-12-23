@@ -21,7 +21,7 @@
                 </div>
                 <div class="text-lg font-semibold">()</div>
             </div>
-            <div class="grid w-[40rem] grid-cols-4 space-x-2 rounded-xl bg-gray-200 p-2">
+            <div class="grid grid-cols-4 space-x-2 rounded-xl bg-gray-200 p-2 m-auto">
                 <div>
                     <input type="radio" name="option" id="1" class="peer hidden" checked />
                     <label for="1" class="block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white">1</label>

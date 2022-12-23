@@ -38,6 +38,7 @@
 	"type": "module",
 	"dependencies": {
 		"@prisma/client": "^4.8.0",
-		"daisyui": "^2.43.2"
+		"daisyui": "^2.43.2",
+		"simple-svelte-autocomplete": "^2.5.1"
 	}
 }

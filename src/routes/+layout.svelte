@@ -1,5 +1,32 @@
-<script>
-    import "../app.css";
+<script lang="ts">
+  import "../app.css";
+  // @ts-ignore
+  import AutoComplete from "simple-svelte-autocomplete";
+  import { goto } from '$app/navigation';
+  import type { LayoutData } from './$types';
+  export let data: LayoutData;
+
+  const all = data.all;
+  // @ts-ignore
+  const parse_all = JSON.parse(all);
+  let namearr: any[] = [];
+  for(let i = 0; i < parse_all.length; i++) {
+      let obj = parse_all[i];
+      namearr.push(obj.name);
+  }
+  let selectedproduct: any;
+  let productid: number;
+  function search() {
+    if (selectedproduct) {
+      for(let i = 0; i < parse_all.length; i++) {
+        let obj = parse_all[i];
+        if (obj.name == selectedproduct) {
+            productid = obj.id;
+        }
+      }
+      goto("/product/" + productid);
+    }
+  }
 </script>
 
 <style>
@@ -40,6 +67,14 @@
         </label>
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-96">
+            <AutoComplete items="{namearr}" bind:selectedItem="{selectedproduct}" placeholder="Search" class="rounded-lg h-auto p-2 bg-slate-200 w-full" />
+            <!-- svelte-ignore a11y-label-has-associated-control -->
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <label tabindex="0" class="btn btn-ghost btn-circle mr-4" on:click={search}>
+              <div class="indicator">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <circle cx="15" cy="15" r="4" /> <path d="M18.5 18.5l2.5 2.5" /> <path d="M4 6h16" /> <path d="M4 12h4" /> <path d="M4 18h4" /> </svg>
+              </div>
+            </label>
             <li class="hoverable hover:bg-blue-800 hover:text-white">
               <a href="#" class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base hover:bg-gradient-to-r from-blue-500 to-blue-900 hover:text-white rounded-lg">Mens</a>
               <div class="p-6 mega-menu mb-16 mt-16 sm:mb-0 shadow-xl bg-blue-800 z-20">
@@ -536,6 +571,15 @@
       </ul>
     </div>
     <div class="navbar-end">
+        <AutoComplete items="{namearr}" bind:selectedItem="{selectedproduct}" placeholder="Search" class="rounded-lg w-full h-auto p-2 bg-slate-200 invisible md:visible" hideArrow="true" />
+        <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+        <!-- svelte-ignore a11y-label-has-associated-control -->
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <label tabindex="0" class="btn btn-ghost btn-circle mr-4 invisible md:visible" on:click={search}>
+          <div class="indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <circle cx="15" cy="15" r="4" /> <path d="M18.5 18.5l2.5 2.5" /> <path d="M4 6h16" /> <path d="M4 12h4" /> <path d="M4 18h4" /> </svg>
+          </div>
+        </label>
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
         <div class="dropdown dropdown-end">
             <!-- svelte-ignore a11y-label-has-associated-control -->
