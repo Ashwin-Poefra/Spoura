@@ -2,8 +2,8 @@
     // @ts-ignore
     import AutoComplete from "simple-svelte-autocomplete";
 
-    /** @type {import('./$types').PageData} */
-    export let data;
+    import type { PageData } from './$types';
+    export let data : PageData;
     const all = data.all;
     const parse_all = JSON.parse(all);
     let namearr: any[] = [];

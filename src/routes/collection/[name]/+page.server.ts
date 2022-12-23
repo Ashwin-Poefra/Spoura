@@ -3,9 +3,9 @@ import { PrismaClient } from '@prisma/client';
  
 const prisma = new PrismaClient();
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load({ params }: any) {
+import type { PageServerLoad } from './$types';
 
+export const load = (async ({ params }) => {
     const collection = await prisma.collection.findFirst({
         where: {
             url_slug: params.name.replace(/\s+/g, '-').toLowerCase()
@@ -23,11 +23,19 @@ export async function load({ params }: any) {
                 "url_slug": collection?.url_slug,
                 "banner": collection?.banner,
                 "products": JSON.stringify(collection?.products),
+                "error": false,
             }
         };
     } else {
         return {
-            "error": true
+            collection: {
+                "id": 0,
+                "name": "",
+                "url_slug": "",
+                "banner": "",
+                "products": "",
+                "error": true,
+            }
         }
     }
-}
+}) satisfies PageServerLoad;

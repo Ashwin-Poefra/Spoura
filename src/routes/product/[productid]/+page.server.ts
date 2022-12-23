@@ -3,9 +3,9 @@ import { PrismaClient } from '@prisma/client';
  
 const prisma = new PrismaClient();
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load({ params }: any) {
+import type { PageServerLoad } from './$types';
 
+export const load = (async ({ params }) => {
     const product = await prisma.product.findFirst({
         where: {
             id: parseInt(params.productid)
@@ -24,12 +24,26 @@ export async function load({ params }: any) {
                 "fit": product?.fit,
                 "size": product?.size,
                 "review": product?.review,
+                "error": false,
+                
             }
     
         };
     } else {
         return {
-            "error": true
+            product: {
+                "id": 0,
+                "name": "",
+                "price": 0,
+                "category": "",
+                "imgurl": {},
+                "colour": {},
+                "fit": {},
+                "size": {},
+                "review": {},
+                "error": true,
+                
+            }
         }
     }
-}
+}) satisfies PageServerLoad;

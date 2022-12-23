@@ -1,12 +1,19 @@
 <script lang="ts">
-    /** @type {import('./$types').PageData} */
-    export let data;
+    import type { PageData } from './$types';
+    export let data : PageData;
     const product = data.product;
+    let imgsrc: string;
+    try {
+        // @ts-ignore
+        imgsrc = product.imgurl.main;
+    } catch {
+        imgsrc = "";
+    }
 </script>
 
 {#if product}
     <div class="p-6 m-auto grid grid-cols-1 md:grid-cols-2 max-w-7xl">
-        <img src={product.imgurl.main} alt={product.name} class="w-96 m-auto ring-2 ring-blue-500 rounded-lg">
+        <img src={imgsrc} alt={product.name} class="w-96 m-auto ring-2 ring-blue-500 rounded-lg">
         <div>
             <h1 class="text-4xl font-semibold pb-4">{product.name}</h1>
             <div class="badge bg-blue-700 text-lg border-0 p-4">{product.category}</div>

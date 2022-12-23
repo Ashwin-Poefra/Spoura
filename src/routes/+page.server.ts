@@ -3,9 +3,9 @@ import { PrismaClient } from '@prisma/client';
  
 const prisma = new PrismaClient();
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load() {
+import type { PageServerLoad } from './$types';
 
+export const load = (async () => {
     const productsCount = await prisma.product.count();
     const skip = Math.floor(Math.random() * (productsCount-6));
     const featured = await prisma.product.findMany({
@@ -41,10 +41,15 @@ export async function load() {
             men: JSON.stringify(trend_men),
             women: JSON.stringify(trend_women),
             kids: JSON.stringify(trend_kids),
+            "error": false,
         };
     } else {
         return {
-            "error": true
+            featured: "",
+            men: "",
+            women: "",
+            kids: "",
+            "error": true,
         }
     }
-}
+}) satisfies PageServerLoad;

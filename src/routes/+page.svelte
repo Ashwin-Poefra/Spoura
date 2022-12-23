@@ -5,8 +5,8 @@
     function changeM () {m_vis = true; w_vis = false; k_vis = false;}
     function changeW () {m_vis = false; w_vis = true; k_vis = false;}
     function changeK () {m_vis = false; w_vis = false; k_vis = true;}
-    /** @type {import('./$types').PageData} */
-    export let data;
+    import type { PageData } from './$types';
+    export let data : PageData;
     const featured = data.featured;
     const trend_men = data.men;
     const trend_women = data.women;
