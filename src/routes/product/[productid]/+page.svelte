@@ -13,7 +13,7 @@
 
 {#if product}
     <div class="p-6 m-auto grid grid-cols-1 md:grid-cols-2 max-w-7xl">
-        <img src={imgsrc} alt={product.name} class="w-96 m-auto ring-2 ring-blue-500 rounded-lg">
+        <img src={imgsrc} alt={product.name} class="w-96 h-auto m-auto ring-2 ring-blue-500 rounded-lg">
         <div>
             <h1 class="text-4xl font-semibold pb-4">{product.name}</h1>
             <div class="badge bg-blue-700 text-lg border-0 p-4">{product.category}</div>

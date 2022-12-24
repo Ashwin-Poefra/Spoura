@@ -5,7 +5,6 @@
   import { goto } from '$app/navigation';
   import type { LayoutData } from './$types';
   export let data: LayoutData;
-
   const all = data.all;
   // @ts-ignore
   const parse_all = JSON.parse(all);
@@ -14,8 +13,8 @@
       let obj = parse_all[i];
       namearr.push(obj.name);
   }
-  let selectedproduct: any;
-  let productid: number;
+  let selectedproduct: any = "";
+  let productid: number = 0;
   function search() {
     if (selectedproduct) {
       for(let i = 0; i < parse_all.length; i++) {
@@ -24,7 +23,6 @@
             productid = obj.id;
         }
       }
-      goto("/product/" + productid);
     }
   }
 </script>
@@ -575,11 +573,12 @@
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
         <!-- svelte-ignore a11y-label-has-associated-control -->
         <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <label tabindex="0" class="btn btn-ghost btn-circle mr-4 invisible md:visible" on:click={search}>
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <a tabindex="0" class="btn btn-ghost btn-circle mr-4 invisible md:visible" on:click={search} data-sveltekit-reload href={"/product/" + productid}>
           <div class="indicator">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-search" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <circle cx="15" cy="15" r="4" /> <path d="M18.5 18.5l2.5 2.5" /> <path d="M4 6h16" /> <path d="M4 12h4" /> <path d="M4 18h4" /> </svg>
           </div>
-        </label>
+        </a>
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
         <div class="dropdown dropdown-end">
             <!-- svelte-ignore a11y-label-has-associated-control -->
