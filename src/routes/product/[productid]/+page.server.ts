@@ -24,6 +24,7 @@ export const load = (async ({ params }) => {
                 "fit": product?.fit,
                 "size": product?.size,
                 "review": product?.review,
+                "description": product?.description,
                 "error": false,
                 
             }
@@ -41,6 +42,7 @@ export const load = (async ({ params }) => {
                 "fit": {},
                 "size": {},
                 "review": {},
+                "description": "",
                 "error": true,
                 
             }

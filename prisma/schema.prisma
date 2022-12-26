@@ -43,6 +43,7 @@ model Product {
   size       Json
   review     Json
   brand      String       @db.VarChar(50)
+  description String? @db.LongText
 
   @@index([col_id, col_name, col_slug, col_banner])
 }

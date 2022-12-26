@@ -64,10 +64,10 @@
 
 <!-- Collections -->
 <div class="grid grid-cols-1 md:grid-cols-2 justify-center pt-10 items-center m-auto">
-    <div class="w-auto h-96 bg-cover bg-center" style='background-image: url("https://brand.assets.reebok.com/image/upload/f_auto,q_auto,fl_lossy/reebok_enGB/Images/FW22_Cardi-B_December-Drop_Sustain_Teaser-Carousel_3_tcm265-965885.jpg")' alt="Reebok next-level" >
+    <div class="w-auto h-96 bg-cover bg-center" style='background-image: url("https://brand.assets.reebok.com/image/upload/f_auto,q_auto,fl_lossy/reebok_enGB/Images/FW22_Cardi-B_December-Drop_Sustain_Teaser-Carousel_3_tcm265-965885.jpg")' >
         <br />
     </div>
-    <div class="w-auto h-96 bg-cover bg-center" style='background-image: url("https://brand.assets.reebok.com/image/upload/f_auto,q_auto,fl_lossy/reebok_enGB/Images/22FW_Mountain-Research_FD_Teaser-Carousel-Card-Background_tcm265-971479.jpg")' alt="Reebok mountains">
+    <div class="w-auto h-96 bg-cover bg-center" style='background-image: url("https://brand.assets.reebok.com/image/upload/f_auto,q_auto,fl_lossy/reebok_enGB/Images/22FW_Mountain-Research_FD_Teaser-Carousel-Card-Background_tcm265-971479.jpg")'>
         <br />
     </div>
 </div>
