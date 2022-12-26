@@ -9,9 +9,12 @@ export const load = (async ({ params }) => {
     const product = await prisma.product.findFirst({
         where: {
             id: parseInt(params.productid)
-        }
+        },
+        include: {
+            collection: true,
+        },
     })
-    
+        
     if (product) {
         return {
             product: {
@@ -25,6 +28,7 @@ export const load = (async ({ params }) => {
                 "size": product?.size,
                 "review": product?.review,
                 "description": product?.description,
+                "collection": JSON.stringify(product?.collection),
                 "error": false,
                 
             }
@@ -43,6 +47,7 @@ export const load = (async ({ params }) => {
                 "size": {},
                 "review": {},
                 "description": "",
+                "collection": "",
                 "error": true,
                 
             }
