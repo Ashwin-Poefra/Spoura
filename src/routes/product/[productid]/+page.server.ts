@@ -14,26 +14,47 @@ export const load = (async ({ params }) => {
             collection: true,
         },
     })
-        
-    if (product) {
-        return {
-            product: {
-                "id": product?.id,
-                "name": product?.name,
-                "price": product?.price.toString(),
-                "category": product?.category,
-                "imgurl": product?.imgurl,
-                "colour": product?.colour,
-                "fit": product?.fit,
-                "size": product?.size,
-                "review": product?.review,
-                "description": product?.description,
-                "collection": JSON.stringify(product?.collection),
-                "error": false,
-                
-            }
     
-        };
+    if (product) {
+        if (product.collection != null) {
+            return {
+                product: {
+                    "id": product?.id,
+                    "name": product?.name,
+                    "price": product?.price.toString(),
+                    "category": product?.category,
+                    "imgurl": product?.imgurl,
+                    "colour": product?.colour,
+                    "fit": product?.fit,
+                    "size": product?.size,
+                    "review": product?.review,
+                    "description": product?.description,
+                    "collection": JSON.stringify(product?.collection),
+                    "error": false,
+                    
+                }
+        
+            };
+        } else {
+            return {
+                product: {
+                    "id": product?.id,
+                    "name": product?.name,
+                    "price": product?.price.toString(),
+                    "category": product?.category,
+                    "imgurl": product?.imgurl,
+                    "colour": product?.colour,
+                    "fit": product?.fit,
+                    "size": product?.size,
+                    "review": product?.review,
+                    "description": product?.description,
+                    "collection": "",
+                    "error": false,
+                    
+                }
+        
+            };
+        }
     } else {
         return {
             product: {

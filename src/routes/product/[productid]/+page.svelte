@@ -13,11 +13,21 @@
     let totalstars: number = 600;
     let stars: number = Math.round(totalstars / reviewcount);
     let sizes: Array<Number> = [1, 2, 3, 4];
-    let count: number = 0;
+    let count: number = 1;
     function increment () {if (count < 9) {count += 1}};
-    function decrement () {if (count > 0) {count -= 1}};
+    function decrement () {if (count > 1) {count -= 1}};
     let isFavourite: boolean = false;
     function changeFavourite () {isFavourite = !isFavourite;};
+    let collection: JSON = JSON.parse("{}");
+    try { 
+        collection = JSON.parse(product.collection);
+    } catch {
+        collection = JSON.parse("{}");
+    }
+    // @ts-ignore
+    let col_name: string = collection.name;
+    // @ts-ignore
+    let col_url_slug: string = collection.url_slug;
 </script>
 
 {#if product}
@@ -30,6 +40,11 @@
             <div class="flex space-x-2 rounded-xl py-4 m-auto">
                 <p>{product.description}</p>
             </div>
+            {#if col_name != undefined}
+                <p>Collection: <a class="hover:underline" href="/collection/{col_url_slug}">{col_name}</a></p>
+            {:else}
+                <p class="hidden">Collection: <u>{col_name}</u></p>
+            {/if}
             <div class="flex pt-4 pb-4">
                 <div class="rating">
                     {#each [1, 2, 3, 4, 5] as rating}
