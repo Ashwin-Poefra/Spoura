@@ -28,22 +28,30 @@
 
 <!-- Collections -->
 <div class="grid grid-cols-2 items-center w-full h-full text-center justify-center">
-    <div class="card-zoom">
-        <div class="card-zoom-image bg-nike"></div>
-        <h1 class="card-zoom-text">NIKE</h1>
-    </div>
-    <div class="card-zoom">
-      <div class="card-zoom-image bg-adidas"></div>
-      <h1 class="card-zoom-text">ADIDAS</h1>
-    </div>
-    <div class="card-zoom">
-      <div class="card-zoom-image bg-puma"></div>
-      <h1 class="card-zoom-text">PUMA</h1>
-    </div>
-    <div class="card-zoom">
-      <div class="card-zoom-image bg-under"></div>
-      <h1 class="card-zoom-text">UNDER ARMOUR</h1>
-    </div>
+    <a href="/nike">
+        <div class="card-zoom">
+            <div class="card-zoom-image bg-nike"></div>
+            <h1 class="card-zoom-text">NIKE</h1>
+        </div>
+    </a>
+    <a href="/adidas">
+        <div class="card-zoom">
+            <div class="card-zoom-image bg-adidas"></div>
+            <h1 class="card-zoom-text">ADIDAS</h1>
+        </div>
+    </a>
+    <a href="/puma">
+        <div class="card-zoom">
+            <div class="card-zoom-image bg-puma"></div>
+            <h1 class="card-zoom-text">PUMA</h1>
+        </div>
+    </a>
+    <a href="/under-armour">
+        <div class="card-zoom">
+          <div class="card-zoom-image bg-under"></div>
+          <h1 class="card-zoom-text">UNDER ARMOUR</h1>
+        </div>
+    </a>
 </div>
 
 <!-- Featured Sales -->
