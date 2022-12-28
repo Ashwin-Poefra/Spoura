@@ -10,6 +10,7 @@ export const load = (async () => {
     if (all) {
         return {
             all: JSON.stringify(all),
+            base_url: process.env.BASE_URL,
         };
     } else {
         return {

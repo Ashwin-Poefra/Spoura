@@ -15,6 +15,23 @@ model User {
   profileViews Int     @default(0)
   role         Role    @default(USER)
   purchase     Json
+  carts    Cart[]
+  favs Favourite[]
+}
+
+model Cart {
+  id      Int     @id @default(autoincrement())
+  user   User[]
+  products Product[]
+  session_id String?
+  product_info Json?
+}
+
+model Favourite {
+  id      Int     @id @default(autoincrement())
+  user   User[]
+  products Product[]
+  session_id String?
 }
 
 model Collection {
@@ -44,6 +61,8 @@ model Product {
   review     Json
   brand      String       @db.VarChar(50)
   description String? @db.LongText
+  carts Cart[]
+  favs Favourite[]
 
   @@index([col_id, col_name, col_slug, col_banner])
 }
