@@ -28,16 +28,12 @@
   import Cookies from 'js-cookie';
 
   let fav_num: number = 0;
-  let fav_products: Array<JSON> = [JSON.parse("{}")];
+  let fav_products: Array<any> = [];
 
   onMount(async () => {
     const fav = await fetch(data.base_url + 'api/favourite?session_id=' + Cookies.get('spoura_fav')).then(response => response.json());
-    if (fav[0] == undefined) {
-      fav_num = 0;
-    } else {
-      fav_products = fav[0].products;
-      fav_num = fav[0].products.length;
-    }
+    fav_products = fav;
+    fav_num = fav.length;
   });
 
   let cart_num: number = 0;
@@ -46,16 +42,12 @@
 
   onMount(async () => {
     const cart = await fetch(data.base_url + 'api/cart?session_id=' + Cookies.get('spoura_cart')).then(response => response.json());
-    if (cart[0] == undefined) {
-      cart_num = 0;
-    } else {
-      cart_products = cart[0].products;
-      cart_num = cart[0].products.length;
-      for (var count in cart_products){
-        // @ts-ignore
-        cart_total += parseFloat(cart_products[count].price);
-      }
+    cart_products = cart;
+    cart_num = cart.length;
+    for (var product in cart_products) {
+      cart_total += parseFloat(cart_products[product][0].price)
     }
+    cart_total = Number(cart_total.toFixed(2));
   });
 </script>
 
@@ -283,9 +275,18 @@
               <span class="badge badge-sm bg-blue-900 indicator-item rounded-lg">{fav_num}</span>
             </div>
           </label>
-          <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
+          <div tabindex="0" class="mt-3 card card-compact dropdown-content w-96 bg-base-100 shadow">
             <div class="card-body">
               <span class="font-bold text-lg">{fav_num} Items</span>
+              {#each fav_products as product}
+                  <a href="/product/{product[0].id}" data-sveltekit-reload class="transition ease-in-out delay-15 duration-300">
+                      <div class="text-lg">
+                        <h2 class="">{product[0].name}</h2>
+                        <div class="badge bg-blue-700 border-0">{product[0].category}</div>
+                        <div class="badge badge-secondary">£{product[0].price}</div>
+                      </div>
+                  </a>
+              {/each}
             </div>
           </div>
         </div>
@@ -305,15 +306,15 @@
               <span class="font-bold text-lg">{cart_num} Items</span>
               <span class="text-info">Subtotal: £{cart_total}</span>
               {#each cart_products as product}
-                  <a href="/product/{product.id}" class="transition ease-in-out delay-15 duration-300">
+                  <a href="/product/{product[0].id}" data-sveltekit-reload class="transition ease-in-out delay-15 duration-300 py-2">
                       <div class="text-lg">
-                        <h2 class="">{product.name}</h2>
-                        <div class="badge bg-blue-700 border-0">{product.category}</div>
-                        <div class="badge badge-secondary">£{product.price}</div>
+                        <h2 class="">{product[0].name}</h2>
+                        <div class="badge bg-blue-700 border-0">{product[0].category}</div>
+                        <div class="badge badge-secondary">£{product[0].price}</div>
                       </div>
                   </a>
               {/each}
-              <div class="card-actions">
+              <div class="card-actions py-2">
                   <a href="/cart"><button class="btn btn-block bg-gradient-to-r from-blue-500 to-blue-900 border-0">View cart</button></a>
               </div>
             </div>

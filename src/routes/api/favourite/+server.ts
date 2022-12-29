@@ -7,18 +7,21 @@ const prisma = new PrismaClient();
 /** @type {import('./$types').RequestHandler} */
 
 export async function GET({ url } : any) {
-  const session_id = url.searchParams.get('session_id');
-  const favourite = await prisma.favourite.findMany({
-    where: {
-        session_id: session_id
-    },
-    include: {
-        products: true
+  let session_id = url.searchParams.get('session_id');
+  session_id = session_id.split("//");
+  let response = [];
+  for (var productid in session_id) {
+    let favourite = await prisma.product.findMany({
+      where: {
+        id: parseInt(session_id[parseInt(productid)])
+      },
+    });
+    if (favourite.toString() != "") {
+      response.push(favourite);
     }
-  });
-  return new Response(JSON.stringify(favourite))
+  }
+  return new Response(JSON.stringify(response))
 }
-
 export async function POST({request}: any) {
   const { favourite } = await request.JSON();
   const addedFavourite = await prisma.favourite.create({

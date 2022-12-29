@@ -28,6 +28,17 @@
     let col_name: string = collection.name;
     // @ts-ignore
     let col_url_slug: string = collection.url_slug;
+
+    import Cookies from 'js-cookie';
+    import { invalidateAll } from '$app/navigation';
+    const addProduct = async () => {
+        let original_cookie: any = "";
+        if (Cookies.get("spoura_cart") != '') {
+            original_cookie = Cookies.get("spoura_cart");
+        }
+        Cookies.set("spoura_cart", original_cookie + "//" + data.product.id);
+        invalidateAll();
+    }
 </script>
 
 {#if product}
@@ -73,7 +84,7 @@
                 <button class="w-4 p-2" on:click={increment}>+</button>
             </div>
             <div class="flex space-x-2 rounded-xl p-2 m-auto">
-                <button class="btn bg-gradient-to-r from-blue-500 to-blue-900 text-white rounded-lg hover:scale-110 border-0 py-2 px-4 my-4">ADD TO CART</button>
+                <a href="/product/{data.product.id}" data-sveltekit-reload><button class="btn bg-gradient-to-r from-blue-500 to-blue-900 text-white rounded-lg hover:scale-110 border-0 py-2 px-4 my-4" on:click={addProduct}>ADD TO CART</button></a>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
                 <!-- svelte-ignore a11y-label-has-associated-control -->
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
