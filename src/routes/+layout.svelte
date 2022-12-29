@@ -31,9 +31,12 @@
   let fav_products: Array<any> = [];
 
   onMount(async () => {
-    const fav = await fetch(data.base_url + 'api/favourite?session_id=' + Cookies.get('spoura_fav')).then(response => response.json());
-    fav_products = fav;
-    fav_num = fav.length;
+    let fav = undefined;
+    if (Cookies.get('spoura_fav') != undefined) {
+      fav = await fetch(data.base_url + 'api/favourite?session_id=' + Cookies.get('spoura_fav')).then(response => response.json());
+      fav_products = fav;
+      fav_num = fav.length;
+    }
   });
 
   let cart_num: number = 0;
@@ -41,13 +44,16 @@
   let cart_total: number = 0;
 
   onMount(async () => {
-    const cart = await fetch(data.base_url + 'api/cart?session_id=' + Cookies.get('spoura_cart')).then(response => response.json());
-    cart_products = cart;
-    cart_num = cart.length;
-    for (var product in cart_products) {
-      cart_total += parseFloat(cart_products[product][0].price)
+    let cart = undefined;
+    if (Cookies.get('spoura_cart') != undefined) {
+      cart = await fetch(data.base_url + 'api/cart?session_id=' + Cookies.get('spoura_cart')).then(response => response.json());
+      cart_products = cart;
+      cart_num = cart.length;
+      for (var product in cart_products) {
+        cart_total += parseFloat(cart_products[product][0].price)
+      }
+      cart_total = Number(cart_total.toFixed(2))
     }
-    cart_total = Number(cart_total.toFixed(2));
   });
 </script>
 
