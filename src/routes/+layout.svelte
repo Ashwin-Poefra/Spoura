@@ -55,6 +55,19 @@
       cart_total = Number(cart_total.toFixed(2))
     }
   });
+
+  const removeFavourite = async (id: number) => {
+        if (Cookies.get("spoura_fav") != undefined) {
+          let original_cookie: any = Cookies.get("spoura_fav");
+          Cookies.set("spoura_fav", original_cookie.replace("//" + id, ""), {sameSite: "strict", secure: true, expires: 500});
+        }
+    }
+    const removeCart = async (id: number) => {
+      if (Cookies.get("spoura_cart") != undefined) {
+          let original_cookie: any = Cookies.get("spoura_cart");
+          Cookies.set("spoura_cart", original_cookie.replace("//" + id, ""), {sameSite: "strict", secure: true, expires: 500});
+      }
+    }
 </script>
 
 <style>
@@ -292,6 +305,10 @@
                         <div class="badge badge-secondary">£{product[0].price}</div>
                       </div>
                   </a>
+                  <!-- svelte-ignore a11y-click-events-have-key-events -->
+                  <!-- svelte-ignore a11y-missing-attribute -->
+                  <!-- svelte-ignore a11y-invalid-attribute -->
+                  <a on:click={removeFavourite(product[0].id)} data-sveltekit-reload href="javascript:window.location.href=window.location.href">Remove</a>
               {/each}
             </div>
           </div>
@@ -319,6 +336,10 @@
                         <div class="badge badge-secondary">£{product[0].price}</div>
                       </div>
                   </a>
+                  <!-- svelte-ignore a11y-click-events-have-key-events -->
+                  <!-- svelte-ignore a11y-missing-attribute -->
+                  <!-- svelte-ignore a11y-invalid-attribute -->
+                  <a on:click={removeCart(product[0].id)} data-sveltekit-reload href="javascript:window.location.href=window.location.href">Remove</a>
               {/each}
               <div class="card-actions py-2">
                   <a href="/cart"><button class="btn btn-block bg-gradient-to-r from-blue-500 to-blue-900 border-0">View cart</button></a>

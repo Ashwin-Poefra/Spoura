@@ -9,6 +9,7 @@ const prisma = new PrismaClient();
 export async function GET({ url } : any) {
   let session_id = url.searchParams.get('session_id');
   session_id = session_id.split("//");
+  session_id.shift();
   let response = [];
   for (var productid in session_id) {
     let favourite = await prisma.product.findMany({

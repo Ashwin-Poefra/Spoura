@@ -44,11 +44,11 @@
                 original_cookie = Cookies.get("spoura_fav");
                 Cookies.set("spoura_fav", original_cookie + "//" + data.product.id, {sameSite: "strict", secure: true, expires: 500});
             } else {
-                Cookies.set("spoura_fav", original_cookie + "" + data.product.id, {sameSite: "strict", secure: true, expires: 500});
+                Cookies.set("spoura_fav", original_cookie + "//" + data.product.id, {sameSite: "strict", secure: true, expires: 500});
             }
         } else {
             let original_cookie: any = Cookies.get("spoura_fav");
-            Cookies.set("spoura_fav", original_cookie.replace("/" + product.id + "//", "/"), {sameSite: "strict", secure: true, expires: 500});
+            Cookies.set("spoura_fav", original_cookie.replace("//" + product.id, ""), {sameSite: "strict", secure: true, expires: 500});
         }
     }
     const addProduct = async () => {
@@ -57,7 +57,7 @@
             original_cookie = Cookies.get("spoura_cart");
             Cookies.set("spoura_cart", original_cookie + "//" + data.product.id, {sameSite: "strict", secure: true, expires: 500});
         } else {
-            Cookies.set("spoura_cart", original_cookie + "" + data.product.id, {sameSite: "strict", secure: true, expires: 500});
+            Cookies.set("spoura_cart", original_cookie + "//" + data.product.id, {sameSite: "strict", secure: true, expires: 500});
         }
     }
 </script>
