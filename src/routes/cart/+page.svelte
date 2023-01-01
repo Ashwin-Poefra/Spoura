@@ -9,6 +9,12 @@
     let cart_products: any = [];
     let cart_total: number = 0;
 
+    let count: number = 1;
+    // @ts-ignore
+    function increment (id: string) {if (count < 9) {count += 1; cart_total += parseFloat(document.getElementById(id)?.innerText); cart_total = Number(cart_total.toFixed(2))}};
+    // @ts-ignore
+    function decrement (id: string) {if (count > 1) {count -= 1; cart_total -= parseFloat(document.getElementById(id)?.innerText); cart_total = Number(cart_total.toFixed(2))}};
+
     onMount(async () => {
         let cart = undefined;
         if (Cookies.get('spoura_cart') != undefined) {
@@ -29,20 +35,31 @@
     }
 </script>
 
-<h1 class="text-center my-6 font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900">Cart - {cart_num} Items</h1>
-<div class="p-6 max-w-6xl m-auto">
+<div class="grid grid-cols-1">
+    <h1 class="text-center my-6 font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900">Cart - {cart_num} Item(s)</h1>
+    <p class="text-3xl my-6 m-auto text-center">Subtotal: £{cart_total}</p>
+    <a href="/checkout" class="m-auto text-center"><button class="btn bg-gradient-to-r from-blue-500 to-blue-900 border-0 rounded-lg m-auto text-center">Checkout</button></a>
+</div>
+<div class="relative p-10 max-w-6xl m-auto">
     {#each cart_products as product}
-        <div class="grid grid-cols-3">
-            <a href="/product/{product[0].id}" data-sveltekit-reload class="transition ease-in-out delay-15 duration-300">
-                <div class="text-xl m-auto">
-                    <div>
-                        <h2 class="w-full">{product[0].name}</h2>
-                        <div class="badge bg-blue-700 border-0">{product[0].category}</div>
-                        <div class="badge badge-secondary">£{product[0].price}</div>
-                    </div>
-                </div>
-            </a>
+        <div class="grid grid-cols-3 shadow-lg ring-1 ring-slate-400 p-4 rounded-lg my-2">
             <img src="{product[0].imgurl.main}" alt="{product[0].name}" class="w-60 m-auto" />
+            <div>
+                <div class="text-3xl m-auto">
+                    <a href="/product/{product[0].id}" data-sveltekit-reload class="transition ease-in-out delay-15 duration-300">
+                        <h2 class="w-full">{product[0].name}</h2>
+                        <div class="badge bg-blue-700 border-0 text-xl p-4">{product[0].category}</div>
+                        <div class="badge badge-secondary text-xl p-4">£{product[0].price}</div>
+                        <div class="hidden" id={product[0].id}>{product[0].price}</div>
+                    </a>
+                </div>
+                <p class="p-2">Quantity: </p>
+                <div class="flex space-x-2 rounded-xl bg-gray-200 p-2 w-40 justify-center">
+                    <button class="w-4 p-2" on:click={decrement(product[0].id)}>-</button>
+                    <span class="w-4 p-2">{count}</span>
+                    <button class="w-4 p-2" on:click={increment(product[0].id)}>+</button>
+                </div>
+            </div>
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-missing-attribute -->
             <!-- svelte-ignore a11y-invalid-attribute -->
