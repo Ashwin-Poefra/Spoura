@@ -23,3 +23,14 @@ export async function GET({ url } : any) {
   }
   return new Response(JSON.stringify(response))
 }
+
+export async function POST({request}: any) {
+  const { favourite } = await request.JSON();
+  const addedFavourite = await prisma.cart.create({
+    data: favourite
+  })
+  return new Response(JSON.stringify({
+    message: "added favourite",
+    product: addedFavourite
+  }))
+}
