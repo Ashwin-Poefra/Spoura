@@ -10,6 +10,9 @@
   import { goto } from '$app/navigation';
     let sort_arr = ["Latest", "Trending", "Price"] as const;
     let sort_select: string | null = $page.url.searchParams.get('sort');
+    if (sort_select == null ){
+        sort_select = "All";
+    }
     let brand_arr = ["All", "Nike", "Adidas", "Puma", "Under Armour"] as const;
     let brand_select: string | null = $page.url.searchParams.get('brand');
     if (brand_select == null ){
@@ -49,7 +52,9 @@
         $page.url.searchParams.set('sort', sortcurrent);
         let brandcurrent: any = brand_select;
         $page.url.searchParams.set('brand', brandcurrent);
-        goto(`?${$page.url.searchParams.toString()}`);
+        try {
+            goto(`?${$page.url.searchParams.toString()}`);
+        } catch {}
     }
 </script>
 
