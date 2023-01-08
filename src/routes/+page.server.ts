@@ -19,13 +19,13 @@ export const load = (async () => {
     const trend_men = await prisma.product.findMany({
         take: 4,
         where: {
-            category: 'Men'
+            category: 'Mens'
         },
     });
     const trend_women = await prisma.product.findMany({
         take: 4,
         where: {
-            category: 'Women'
+            category: 'Womens'
         },
     });
     const trend_kids = await prisma.product.findMany({
