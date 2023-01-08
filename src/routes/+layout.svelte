@@ -153,9 +153,11 @@
     </div>
     <div class="navbar-center hidden lg:flex">
       <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-      <ul class="menu menu-horizontal px-1" tabindex="0" >
+      <ul class="menu menu-horizontal px-1" tabindex="0">
         <li class="hoverable hover:bg-gradient-to-r from-blue-500 to-blue-900 hover:text-white">
-          <div class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base hover:bg-gradient-to-r from-blue-500 to-blue-900 hover:text-white">Mens</div>
+          <div class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base hover:bg-gradient-to-r from-blue-500 to-blue-900 hover:text-white">
+            Mens
+          </div>
           <div class="p-6 mega-menu mb-16 mt-16 sm:mb-0 shadow-xl bg-gradient-to-r from-blue-500 to-blue-900">
             <div class="grid grid-cols-5 m-auto">
               <img src="/banner-right-image.png" alt="nav mens img" class="w-60" />
@@ -196,7 +198,7 @@
           </div>
         </li>
         <li class="hoverable hover:bg-gradient-to-r from-blue-500 to-blue-900 hover:text-white">
-          <a href="/womens" class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base hover:bg-gradient-to-r from-blue-500 to-blue-900 hover:text-white">Womens</a>
+          <div class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base hover:bg-gradient-to-r from-blue-500 to-blue-900 hover:text-white">Womens</div>
           <div class="p-6 mega-menu mb-16 mt-16 sm:mb-0 shadow-xl bg-gradient-to-r from-blue-500 to-blue-900">
             <div class="grid grid-cols-5 m-auto">
               <img src="/womens_nav.png" alt="nav womens img" class="w-72" />
@@ -237,7 +239,7 @@
           </div>
         </li>
         <li class="hoverable hover:bg-gradient-to-r from-blue-500 to-blue-900 hover:text-white">
-          <a href="/kids" class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base hover:bg-gradient-to-r from-blue-500 to-blue-900 hover:text-white">Kids</a>
+          <div class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base hover:bg-gradient-to-r from-blue-500 to-blue-900 hover:text-white">Kids</div>
           <div class="p-6 mega-menu mb-16 mt-16 sm:mb-0 shadow-xl bg-gradient-to-r from-blue-500 to-blue-900">
             <div class="grid grid-cols-5 m-auto">
               <img src="/kids_nav.png" alt="nav mens img" class="w-48 pl-10" />
