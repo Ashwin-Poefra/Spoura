@@ -44,6 +44,17 @@
 
         }
         filter_list = showlist;
+        if (sort_select == "Latest") {
+            function sortLatest(a: any, b: any) {
+                if (a.id === b.id) {
+                    return 0;
+                }
+                else {
+                    return (a.id - b.id) ? -1 : 1;
+                }
+            }
+            filter_list = filter_list.sort(sortLatest);
+        }
         filter_list = filter_list;
 
         let typecurrent: any = type_select;
