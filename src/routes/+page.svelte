@@ -19,7 +19,7 @@
         <div class="p-10 ml-2 rounded-3xl bg-opacity-100 relative">
             <h1 class="mb-5 text-5xl font-bold">Welcome to <em class="font-extrabold text-transparent text-7xl md:text-9xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900">Spoura</em></h1>
             <p class="mb-5 text-3xl">Selling the best shoes by the biggest brands since 2013.</p>
-            <a class="btn bg-gradient-to-r from-blue-500 to-blue-900 border-0 rounded-lg hover:scale-110" href="/all">All Products</a>
+            <a class="btn bg-gradient-to-r from-blue-500 to-blue-900 border-0 rounded-lg hover:scale-110" href="/shop">All Products</a>
             <img class="absolute right-4 bottom-4 w-40 h-10" src="/brands.png" alt="Puma Adidas Nike" />
         </div>
         <div />
@@ -60,7 +60,7 @@
     {#each JSON.parse(featured) as product}
         <a href="/product/{product.id}" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10 m-auto">
             <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl.main});'>
-                <div class="card-body pb-36">
+                <div class="card-body pb-40">
                     <h2 class="card-title">{product.name}</h2>
                     <div class="badge bg-blue-700 border-0">{product.category}</div>
                     <div class="badge badge-secondary">£{product.price}</div>
@@ -102,7 +102,7 @@
                 {#each JSON.parse(trend_men) as product}
                     <a href="/product/{product.id}" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10 m-auto">
                         <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl.main});'>
-                            <div class="card-body pb-36">
+                            <div class="card-body pb-40">
                                 <h2 class="card-title">{product.name}</h2>
                                 <div class="badge bg-blue-700 border-0">{product.category}</div>
                                 <div class="badge badge-secondary">£{product.price}</div>
@@ -117,7 +117,7 @@
                 {#each JSON.parse(trend_women) as product}
                     <a href="/product/{product.id}" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10 m-auto">
                         <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl.main});'>
-                            <div class="card-body pb-36">
+                            <div class="card-body pb-40">
                                 <h2 class="card-title">{product.name}</h2>
                                 <div class="badge bg-blue-700 border-0">{product.category}</div>
                                 <div class="badge badge-secondary">£{product.price}</div>
@@ -132,7 +132,7 @@
             {#each JSON.parse(trend_kids) as product}
                 <a href="/product/{product.id}" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10 m-auto">
                     <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl.main});'>
-                        <div class="card-body pb-36">
+                        <div class="card-body pb-40">
                             <h2 class="card-title">{product.name}</h2>
                             <div class="badge bg-blue-700 border-0">{product.category}</div>
                             <div class="badge badge-secondary">£{product.price}</div>
