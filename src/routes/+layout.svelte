@@ -373,7 +373,7 @@
       <br /> 
       <a class="link link-hover p-4" href="/shop?brand=Nike" data-sveltekit-reload>Nike</a>
       <a class="link link-hover p-4" href="/shop?brand=Adidas" data-sveltekit-reload>Adidas</a>
-      <a class="link link-hover p-4" href="/shop?brand=Puma" data-sveltekit-reload">Puma</a>
+      <a class="link link-hover p-4" href="/shop?brand=Puma" data-sveltekit-reload>Puma</a>
       <a class="link link-hover p-4" href="/shop?brand=Under%20Armour" data-sveltekit-reload>Under Armour</a>
     </div> 
     <div class="col-span-2 m-auto p-2">
