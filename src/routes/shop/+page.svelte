@@ -8,52 +8,33 @@
     import AutoComplete from "simple-svelte-autocomplete";
     import { page } from '$app/stores';
   import { goto } from '$app/navigation';
-    let sort_arr = ["Latest", "Trending", "Price"] as const;
+    let sort_arr = ["Latest", "Trending", "Price Low->High", "Price High->Low"] as const;
     let sort_select: string | null = $page.url.searchParams.get('sort');
-    if (sort_select == null ){
-        sort_select = "All";
-    }
+    if (sort_select == null ){sort_select = "All";}
     let brand_arr = ["All", "Nike", "Adidas", "Puma", "Under Armour"] as const;
     let brand_select: string | null = $page.url.searchParams.get('brand');
-    if (brand_select == null ){
-        brand_select = "All";
-    }
+    if (brand_select == null ){brand_select = "All";}
     let type_arr = ["All", "Mens", "Womens", "Kids"] as const;
     let type_select: string | null = $page.url.searchParams.get('type');
-    if (type_select == null ){
-        type_select = "All";
-    }
+    if (type_select == null ){type_select = "All";}
     async function filterChange() {
         let showlist = [];
         for (let product in all_list) {
-            if (brand_select != "All" && type_select != "All") {
-                if (all_list[product].category == type_select && all_list[product].brand == brand_select){
-                    showlist.push(all_list[product]);
-                }
-            } else if (brand_select == "All" && type_select != "All") {
-                if (all_list[product].category == type_select){
-                    showlist.push(all_list[product]);
-                }
-            } else if (brand_select != "All" && type_select == "All" ) {
-                if (all_list[product].brand == brand_select){
-                    showlist.push(all_list[product]);
-                }
-            } else {
-                showlist.push(all_list[product]);
-            }
-
+            if (brand_select != "All" && type_select != "All") {if (all_list[product].category == type_select && all_list[product].brand == brand_select){showlist.push(all_list[product]);}
+            } else if (brand_select == "All" && type_select != "All") {if (all_list[product].category == type_select){showlist.push(all_list[product]);}
+            } else if (brand_select != "All" && type_select == "All" ) {if (all_list[product].brand == brand_select){showlist.push(all_list[product]);}
+            } else {showlist.push(all_list[product]);}
         }
         filter_list = showlist;
         if (sort_select == "Latest") {
-            function sortLatest(a: any, b: any) {
-                if (a.id === b.id) {
-                    return 0;
-                }
-                else {
-                    return (a.id - b.id) ? -1 : 1;
-                }
-            }
+            function sortLatest(a: any, b: any) {if (a.id === b.id) {return 0;}else {return (a.id - b.id) ? -1 : 1;}}
             filter_list = filter_list.sort(sortLatest);
+        } else if (sort_select == "Price Low->High") {
+            function sortPrice(a: any, b: any) {if (parseFloat(a.price) === parseFloat(b.price)) {return 0;}else {return (parseFloat(a.price) < parseFloat(b.price)) ? -1 : 1;}}
+            filter_list = filter_list.sort(sortPrice);
+        } else if (sort_select == "Price High->Low") {
+            function sortPrice(a: any, b: any) {if (parseFloat(a.price) === parseFloat(b.price)) {return 0;}else {return (parseFloat(a.price) > parseFloat(b.price)) ? -1 : 1;}}
+            filter_list = filter_list.sort(sortPrice);
         }
         filter_list = filter_list;
 
@@ -88,7 +69,7 @@
             {#each filter_list as product}
                     <div class="my-6">
                         <a href="/product/{product.id}" class="m-auto">
-                            <div class="card h-60 w-72 bg-center bg-cover -z-10" style='background-image: url({product.imgurl.main});'>
+                            <div class="card h-72 w-80 bg-center bg-cover -z-10" style='background-image: url({product.imgurl.main});'>
                                 <div class="card-body pb-40">
                                     <h2 class="card-title">{product.name}</h2>
                                     <div class="badge bg-blue-700 border-0">{product.category}</div>
