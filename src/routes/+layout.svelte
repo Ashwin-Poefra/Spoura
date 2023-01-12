@@ -371,17 +371,17 @@
     <div class="col-span-2 m-auto p-2">
       <span class="footer-title">Brands</span>
       <br /> 
-      <a class="link link-hover p-4" href="/nike">Nike</a>
-      <a class="link link-hover p-4" href="/adidas">Adidas</a>
-      <a class="link link-hover p-4" href="/puma">Puma</a>
-      <a class="link link-hover p-4" href="/under-armour">Under Armour</a>
+      <a class="link link-hover p-4" href="/shop?brand=Nike" data-sveltekit-reload>Nike</a>
+      <a class="link link-hover p-4" href="/shop?brand=Adidas" data-sveltekit-reload>Adidas</a>
+      <a class="link link-hover p-4" href="/shop?brand=Puma" data-sveltekit-reload">Puma</a>
+      <a class="link link-hover p-4" href="/shop?brand=Under%20Armour" data-sveltekit-reload>Under Armour</a>
     </div> 
     <div class="col-span-2 m-auto p-2">
       <span class="footer-title">Navigation</span>
       <br />
-      <a class="link link-hover p-4" href="/all">All Products</a>
-      <a class="link link-hover p-4" href="/about">About</a>
-      <a class="link link-hover p-4" href="/contact">Contact</a>
+      <a class="link link-hover p-4" href="/shop" data-sveltekit-reload>All Products</a>
+      <a class="link link-hover p-4" href="/about" data-sveltekit-reload>About</a>
+      <a class="link link-hover p-4" href="/contact" data-sveltekit-reload>Contact</a>
     </div> 
     <div class="col-span-2 m-auto p-2">
       <span class="footer-title">Matthew Harvey</span> 

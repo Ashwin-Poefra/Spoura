@@ -51,19 +51,19 @@
                 </label>
                 <label class="input-group input-group-vertical p-2">
                     <span>Street</span>
-                    <input type="text" placeholder="info@site.com" class="input input-bordered" />
+                    <input type="text" placeholder="Example Road" class="input input-bordered" />
                 </label>
                 <label class="input-group input-group-vertical p-2">
                     <span>Postcode</span>
-                    <input type="text" placeholder="info@site.com" class="input input-bordered" />
+                    <input type="text" placeholder="TE5 ST0" class="input input-bordered" />
                 </label>
                 <label class="input-group input-group-vertical p-2">
                     <span>Town/City</span>
-                    <input type="text" placeholder="info@site.com" class="input input-bordered" />
+                    <input type="text" placeholder="London" class="input input-bordered" />
                 </label>
                 <label class="input-group input-group-vertical p-2">
                     <span>Country</span>
-                    <input type="text" placeholder="info@site.com" class="input input-bordered" />
+                    <input type="text" placeholder="United Kingdom" class="input input-bordered" />
                 </label>
             </div>
             <div class="px-4 grid grid-cols-1">
@@ -72,19 +72,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 p-4">
                 <label class="input-group input-group-vertical p-2">
                     <span>Name Of Card Owner</span>
-                    <input type="number" placeholder=11 class="input input-bordered" />
+                    <input type="number" placeholder="Name" class="input input-bordered" />
                 </label>
                 <label class="input-group input-group-vertical p-2">
                     <span>Card Number</span>
-                    <input type="number" placeholder=11 class="input input-bordered" />
+                    <input type="number" placeholder=23942905892 class="input input-bordered" />
                 </label>
                 <label class="input-group input-group-vertical p-2">
                     <span>Expiry Date</span>
-                    <input type="date" placeholder=11 class="input input-bordered" />
+                    <input type="date" placeholder=2 class="input input-bordered" />
                 </label>
                 <label class="input-group input-group-vertical p-2">
                     <span>CVV</span>
-                    <input type="number" placeholder=11 class="input input-bordered" maxlength="3" size="3" />
+                    <input type="number" placeholder=123 class="input input-bordered" maxlength="3" size="3" />
                 </label>
             </div>
           </div>
