@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import Cookies from 'js-cookie';
+    import '@google-pay/button-element';
 
     import type { PageData } from './$types';
     export let data: PageData;
@@ -23,7 +24,6 @@
         }
     });
 </script>
-
 
 <div class="grid grid-cols-1 md:grid-cols-2">
     <div>
@@ -66,32 +66,50 @@
                     <input type="text" placeholder="United Kingdom" class="input input-bordered" />
                 </label>
             </div>
-            <div class="px-4 grid grid-cols-1">
-                <p class="px-2 text-2xl">Payment Details</p>
+            <div class="m-auto my-6">
+                <google-pay-button
+                    environment="TEST"
+                    paymentRequest={{
+                        apiVersion: 2,
+                        apiVersionMinor: 0,
+                        allowedPaymentMethods: [
+                        {
+                            type: 'CARD',
+                            parameters: {
+                            allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                            allowedCardNetworks: ['MASTERCARD', 'VISA'],
+                            },
+                            tokenizationSpecification: {
+                            type: 'PAYMENT_GATEWAY',
+                            parameters: {
+                                gateway: 'example',
+                                gatewayMerchantId: 'exampleGatewayMerchantId',
+                            },
+                            },
+                        },
+                        ],
+                        merchantInfo: {
+                        merchantId: '12345678901234567890',
+                        merchantName: 'Spoura',
+                        },
+                        transactionInfo: {
+                        totalPriceStatus: 'FINAL',
+                        totalPriceLabel: 'Total',
+                        totalPrice: cart_total.toString(),
+                        currencyCode: 'GBP',
+                        countryCode: 'US',
+                        },
+                    }}
+                    onLoadPaymentData={paymentRequest => {
+                        console.log('load payment data', paymentRequest);
+                    }}
+                />
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 p-4">
-                <label class="input-group input-group-vertical p-2">
-                    <span>Name Of Card Owner</span>
-                    <input type="number" placeholder="Name" class="input input-bordered" />
-                </label>
-                <label class="input-group input-group-vertical p-2">
-                    <span>Card Number</span>
-                    <input type="number" placeholder=23942905892 class="input input-bordered" />
-                </label>
-                <label class="input-group input-group-vertical p-2">
-                    <span>Expiry Date</span>
-                    <input type="date" placeholder=2 class="input input-bordered" />
-                </label>
-                <label class="input-group input-group-vertical p-2">
-                    <span>CVV</span>
-                    <input type="number" placeholder=123 class="input input-bordered" maxlength="3" size="3" />
-                </label>
-            </div>
-          </div>
+        </div>
     </div>
     <div class="relative p-10 max-w-6xl m-auto">
-        <h1 class="text-center my-6 font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900">Checkout - {cart_num} Item(s)</h1>
-        <p class="text-3xl my-6 m-auto text-center">Subtotal: £{cart_total}</p>
+        <h1 class="text-center my-2 font-extrabold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900">Checkout - {cart_num} Item(s)</h1>
+        <p class="text-2xl my-2 m-auto text-center">Subtotal: £{cart_total}</p>
         <a href="/cart"><h2 class="text-center my-2 font-base underline text-xl hover:scale-110 transition ease-in-out delay-15 duration-300" >Back to cart</h2></a>
         {#each cart_products as product}
             <div class="grid grid-cols-3 rounded-lg">

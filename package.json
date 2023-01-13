@@ -38,6 +38,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@google-pay/button-element": "^3.0.5",
 		"@prisma/client": "^4.8.0",
 		"@stripe/stripe-js": "^1.46.0",
 		"daisyui": "^2.43.2",

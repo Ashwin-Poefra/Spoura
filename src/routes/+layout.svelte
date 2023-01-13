@@ -363,7 +363,7 @@
 
 <slot />
 
-<footer class="footer p-10 bg-neutral text-neutral-content bg-gradient-to-r from-blue-500 to-blue-900 ">
+<footer class="footer p-10 bg-neutral text-neutral-content bg-gradient-to-r from-blue-500 to-blue-900">
   <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 ">
     <div class="col-span-1 m-auto p-2">
       <a class="btn btn-ghost font-extrabold text-transparent text-4xl bg-clip-text bg-white" href="/">Spoura</a>
