@@ -1,4 +1,4 @@
-import type { LayoutServerLoad } from './api/$types';
+import type { PageServerLoad } from '../$types';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */ 
 import { PrismaClient } from '@prisma/client';
@@ -17,4 +17,4 @@ export const load = (async () => {
             "error": true
         }
     }
-}) satisfies LayoutServerLoad;
+}) satisfies PageServerLoad;

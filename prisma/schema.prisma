@@ -24,6 +24,7 @@ model Cart {
   user   User[]
   products Product[]
   session_id String?
+  product_info Json?
 }
 
 model Favourite {
@@ -55,8 +56,9 @@ model Product {
   col_banner  String?
   imgurl     Json
   colour     Json
-  fit        Json
-  size       Json
+  fit        String
+  size       String?
+  quantity  Int?
   review     Json
   brand      String       @db.VarChar(50)
   description String? @db.LongText
