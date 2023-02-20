@@ -14,7 +14,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
-		"@sveltejs/kit": "next",
+		"@sveltejs/kit": "^1.0.0-next.589",
 		"@types/jquery": "^3.5.14",
 		"@types/js-cookie": "^3.0.2",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
@@ -41,6 +41,7 @@
 		"@google-pay/button-element": "^3.0.5",
 		"@prisma/client": "^4.8.0",
 		"@stripe/stripe-js": "^1.46.0",
+		"@sveltejs/adapter-vercel": "^2.0.4",
 		"daisyui": "^2.43.2",
 		"js-cookie": "^3.0.1",
 		"simple-svelte-autocomplete": "^2.5.1",
