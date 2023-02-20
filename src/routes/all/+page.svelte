@@ -26,7 +26,7 @@
         {#each JSON.parse(all) as product}
             <a href="/product/{product.id}" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10 m-auto">
                 <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover -z-10" style='background-image: url({product.imgurl.main});'>
-                    <div class="card-body pb-40">
+                    <div class="card-body pb-36">
                         <h2 class="card-title">{product.name}</h2>
                         <div class="badge bg-blue-700 border-0">{product.category}</div>
                         <div class="badge badge-secondary">£{product.price}</div>

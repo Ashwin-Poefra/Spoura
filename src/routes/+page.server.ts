@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 import type { PageServerLoad } from './$types';
 
-export const load = (async () => {
+export const load = (async () => {    
     const productsCount = await prisma.product.count();
     const skip = Math.floor(Math.random() * (productsCount-6));
     const featured = await prisma.product.findMany({
@@ -19,13 +19,13 @@ export const load = (async () => {
     const trend_men = await prisma.product.findMany({
         take: 4,
         where: {
-            category: 'Mens'
+            category: 'Men'
         },
     });
     const trend_women = await prisma.product.findMany({
         take: 4,
         where: {
-            category: 'Womens'
+            category: 'Women'
         },
     });
     const trend_kids = await prisma.product.findMany({

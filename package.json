@@ -38,13 +38,9 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@google-pay/button-element": "^3.0.5",
 		"@prisma/client": "^4.8.0",
-		"@stripe/stripe-js": "^1.46.0",
 		"daisyui": "^2.43.2",
 		"js-cookie": "^3.0.1",
-		"simple-svelte-autocomplete": "^2.5.1",
-		"stripe": "^11.5.0",
-		"svelte-stripe": "^0.0.21"
+		"simple-svelte-autocomplete": "^2.5.1"
 	}
 }

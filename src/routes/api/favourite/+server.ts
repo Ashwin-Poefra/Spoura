@@ -6,23 +6,15 @@ const prisma = new PrismaClient();
 
 /** @type {import('./$types').RequestHandler} */
 
-export async function GET({ url } : any) {
-  let session_id = url.searchParams.get('session_id');
-  session_id = session_id.split("//");
-  session_id.shift();
-  let response = [];
-  for (var productid in session_id) {
-    let favourite = await prisma.product.findMany({
-      where: {
-        id: parseInt(session_id[parseInt(productid)])
-      },
-    });
-    if (favourite.toString() != "") {
-      response.push(favourite);
+export async function GET({ params } : any) {
+  const favourite = await prisma.favourite.findMany({
+    where: {
+        session_id: params.session_id,
     }
-  }
-  return new Response(JSON.stringify(response))
+  });
+  return new Response(JSON.stringify(favourite))
 }
+
 export async function POST({request}: any) {
   const { favourite } = await request.JSON();
   const addedFavourite = await prisma.favourite.create({
