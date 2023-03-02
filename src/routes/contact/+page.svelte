@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { PageData } from '../products/$types';
+    import type { PageData } from './$types';
     export let data : PageData;
     const all = data.all;
     $: filter_list = JSON.parse(all);
@@ -7,7 +7,7 @@
     // @ts-ignore
     import AutoComplete from "simple-svelte-autocomplete";
     import { page } from '$app/stores';
-  import { goto } from '$app/navigation';
+    import { goto } from '$app/navigation';
     let sort_arr = ["Latest", "Trending", "Price Low->High", "Price High->Low"] as const;
     let sort_select: string | null = $page.url.searchParams.get('sort');
     if (sort_select == null ){sort_select = "All";}
