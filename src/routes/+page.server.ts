@@ -1,9 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */ 
-import { PrismaClient } from '@prisma/client';
- 
-const prisma = new PrismaClient();
-
-import type { PageServerLoad } from './$types';
+ import type { PageServerLoad } from './$types';
+import { prisma } from '../prisma';
 
 export const load = (async () => {
     const productsCount = await prisma.product.count();
