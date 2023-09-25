@@ -1,0 +1,4 @@
+[{"id":1,"name":"Nike Flyknit","url_slug":"nike-flyknit","banner":"https://media.gq.com/photos/58c03c5f0197c220f4d9d2b2/16:9/w_2560%2Cc_limit/526628_100_Lead_Des.jpg","products":[{"id":2},{"id":3},{"id":4},{"id":5}]}]
+[{"id":2,"name":"Adidas 4DFWD","url_slug":"adidas-4dfwd","banner":"https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2021%2F07%2Fadidas-4dfwd-tokyo-cloud-white-Q46443-release-date-tw.jpg?w=960&cbr=1&q=90&fit=max","products":[{"id":6},{"id":7},{"id":8},{"id":9}]}]
+[{"id":3,"name":"Puma MB.02","url_slug":"puma-mb02","banner":"https://sneakernews.com/wp-content/uploads/2022/12/puma-mb-02-slime-377584-01-9.jpg?w=1140","products":[{"id":11},{"id":12},{"id":13}]}]
+[{"id":4,"name":"Puma Ca Pro","url_slug":"puma-capro","banner":"https://img01.ztat.net/article/spp-media-p1/89346aef5a0748fbb9bb40b899ab705e/8f598df8c6d54c2982a28e50321661d6.jpg?imwidth=762&filter=packsh","products":[{"id":15},{"id":16}]}]

@@ -1,35 +1,103 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
-import { PrismaClient } from '@prisma/client';
- 
-const prisma = new PrismaClient();
+import type { RequestEvent } from './$types';
+import jwt from "jsonwebtoken";
+import type { Product } from '../../../prismatypes';
+import { prisma } from '../../../prisma';
 
 /** @type {import('./$types').RequestHandler} */
 
-export async function GET({ url } : any) {
-  let session_id = url.searchParams.get('session_id');
-  session_id = session_id.split("//");
-  session_id.shift();
-  let response = [];
-  for (var productid in session_id) {
-    let favourite = await prisma.product.findMany({
+export async function GET(request: RequestEvent) {
+
+  let existingtoken: string = "";
+  jwt.verify(request.cookies.get("spouratesting")!, process.env.JWTSECRET!, function(err: any, decoded: any) {
+      existingtoken = decoded.sessionid
+      //console.log(decoded)
+  });
+
+  if ( request.url.searchParams.get("add") == "true") {
+
+    const firstproduct = await prisma.product.findFirst({
       where: {
-        id: parseInt(session_id[parseInt(productid)])
-      },
+        id: parseInt(request.url.searchParams.get("productnum")!)
+      }
     });
-    if (favourite.toString() != "") {
-      response.push(favourite);
+
+    if (firstproduct) {
+      //  add function 
+      const sessionId = await prisma.session.findFirst({
+        where: {
+          sessionString: existingtoken
+        },
+        include: {
+          favouriteProducts: true
+        }
+      }); 
+
+      const favProductsIDS: {id: number}[]  = [];
+      sessionId!.favouriteProducts.forEach((product) => {
+        favProductsIDS.push({id: product.id})
+      })
+      favProductsIDS.push({id: firstproduct.id})
+
+      if (sessionId) { 
+        const updatedSession = await prisma.session.update({
+          where: {
+            id_sessionString: {
+              id: sessionId.id, // change to id from getSession db call
+              sessionString: existingtoken
+            }
+          },
+          data: {
+            favouriteProducts: {
+              set: favProductsIDS
+            }
+          }
+        });
+        console.log(updatedSession)
+      }
+
+      const updatedFavProducts = [...sessionId!.favouriteProducts, firstproduct];
+      return new Response(JSON.stringify(updatedFavProducts))
+      
     }
+  } else {
+    //  remove function
+    const sessionId = await prisma.session.findFirst({
+      where: {
+        sessionString: existingtoken
+      },
+      include: {
+        favouriteProducts: true
+      }
+    }); 
+
+    const favProductsIDS: {id: number}[]  = [];
+    const favProductsFinal: Product[] = [];
+    sessionId!.favouriteProducts.forEach((product) => {
+      if (product.id != parseInt(request.url.searchParams.get("productnum")!)) {
+        favProductsIDS.push({id: product.id})
+        // @ts-ignore
+        favProductsFinal.push(product)
+      }
+    })
+
+    if (sessionId) { 
+      const updatedSession = await prisma.session.update({
+        where: {
+          id_sessionString: {
+            id: sessionId.id, // change to id from getSession db call
+            sessionString: existingtoken
+          }
+        },
+        data: {
+          favouriteProducts: {
+            set: favProductsIDS
+          }
+        }
+      });
+      console.log(updatedSession)
+    }
+
+    return new Response(JSON.stringify(favProductsFinal))
   }
-  return new Response(JSON.stringify(response))
-}
-export async function POST({request}: any) {
-  const { favourite } = await request.JSON();
-  const addedFavourite = await prisma.favourite.create({
-    data: favourite
-  })
-  return new Response(JSON.stringify({
-    message: "added favourite",
-    product: addedFavourite
-  }))
 }

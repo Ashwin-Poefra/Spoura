@@ -59,7 +59,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center md:p-14 m-auto max-w-7xl items-stretch">
     {#each JSON.parse(featured) as product}
         <a href="/product/{product.id}" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10 m-auto">
-            <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl.main});'>
+            <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl});'>
                 <div class="card-body pb-40">
                     <h2 class="card-title">{product.name}</h2>
                     <div class="badge bg-blue-700 border-0">{product.category}</div>
@@ -101,7 +101,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 justify-center md:p-14 m-auto max-w-7xl items-stretch">
                 {#each JSON.parse(trend_men) as product}
                     <a href="/product/{product.id}" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10 m-auto">
-                        <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl.main});'>
+                        <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl});'>
                             <div class="card-body pb-40">
                                 <h2 class="card-title">{product.name}</h2>
                                 <div class="badge bg-blue-700 border-0">{product.category}</div>
@@ -116,7 +116,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 justify-center md:p-14 m-auto max-w-7xl items-stretch">
                 {#each JSON.parse(trend_women) as product}
                     <a href="/product/{product.id}" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10 m-auto">
-                        <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl.main});'>
+                        <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl});'>
                             <div class="card-body pb-40">
                                 <h2 class="card-title">{product.name}</h2>
                                 <div class="badge bg-blue-700 border-0">{product.category}</div>
@@ -131,7 +131,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 justify-center md:p-14 m-auto max-w-7xl items-stretch">
             {#each JSON.parse(trend_kids) as product}
                 <a href="/product/{product.id}" class="transition ease-in-out delay-15 hover:scale-105 duration-300 md:p-10 m-auto">
-                    <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl.main});'>
+                    <div class="card h-72 w-80 ring-2 rounded-xl bg-center bg-cover" style='background-image: url({product.imgurl});'>
                         <div class="card-body pb-40">
                             <h2 class="card-title">{product.name}</h2>
                             <div class="badge bg-blue-700 border-0">{product.category}</div>

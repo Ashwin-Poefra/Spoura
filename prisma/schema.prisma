@@ -9,29 +9,25 @@ datasource db {
 }
 
 model User {
-  id           Int     @id @default(autoincrement())
+  id           Int       @id @default(autoincrement())
   name         String?
-  email        String  @unique
-  profileViews Int     @default(0)
-  role         Role    @default(USER)
+  email        String    @unique
+  profileViews Int       @default(0)
+  role         Role      @default(USER)
   purchase     Json
-  carts    Cart[]
-  favs Favourite[]
+  sessions     Session[]
+
+  @@unique([id])
 }
 
-model Cart {
-  id      Int     @id @default(autoincrement())
-  user   User[]
-  products Product[]
-  session_id String?
-  product_info Json?
-}
+model Session {
+  id                Int       @id @default(autoincrement())
+  sessionString     String
+  user              User[]
+  cartProducts      Product[] @relation("inCart")
+  favouriteProducts Product[] @relation("inFavourite")
 
-model Favourite {
-  id      Int     @id @default(autoincrement())
-  user   User[]
-  products Product[]
-  session_id String?
+  @@unique([id, sessionString])
 }
 
 model Collection {
@@ -45,29 +41,28 @@ model Collection {
 }
 
 model Product {
-  id         Int          @id @default(autoincrement())
-  name       String       @db.VarChar(50)
-  price      Decimal      @db.Decimal(10, 2)
-  category   String       @default("mens")
-  collection Collection? @relation(fields: [col_id, col_name, col_slug, col_banner], references: [id, name, url_slug, banner])
-  col_id  Int?
-  col_name String?
-  col_slug String?
+  id          Int         @id @default(autoincrement())
+  name        String      @db.VarChar(50)
+  price       Decimal     @db.Decimal(10, 2)
+  imgurl      String
+  colour      Json
+  fit         String
+  size        String?
+  brand       String      @db.VarChar(50)
+  category    String      @default("Mens")
   col_banner  String?
-  imgurl     Json
-  colour     Json
-  fit        String
-  size       String?
-  quantity  Int?
-  review     Json
-  brand      String       @db.VarChar(50)
-  description String? @db.LongText
-  carts Cart[]
-  favs Favourite[]
+  col_id      Int?
+  col_name    String?
+  col_slug    String?
+  description String?     @db.LongText
+  quantity    Int?
+  collection  Collection? @relation(fields: [col_id, col_name, col_slug, col_banner], references: [id, name, url_slug, banner], map: "collection_fk")
+  inCart      Session[]   @relation("inCart")
+  inFavourite Session[]   @relation("inFavourite")
 
+  @@unique([id])
   @@index([col_id, col_name, col_slug, col_banner])
 }
-
 
 enum Role {
   USER

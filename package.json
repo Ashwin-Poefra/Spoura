@@ -17,6 +17,7 @@
 		"@sveltejs/kit": "^1.0.0-next.589",
 		"@types/jquery": "^3.5.14",
 		"@types/js-cookie": "^3.0.2",
+		"@types/jsonwebtoken": "^9.0.3",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.13",
@@ -39,11 +40,12 @@
 	"type": "module",
 	"dependencies": {
 		"@google-pay/button-element": "^3.0.5",
-		"@prisma/client": "^4.8.0",
+		"@prisma/client": "^4.16.2",
 		"@stripe/stripe-js": "^1.46.0",
 		"@sveltejs/adapter-vercel": "^2.0.4",
 		"daisyui": "^2.43.2",
 		"js-cookie": "^3.0.1",
+		"jsonwebtoken": "^9.0.2",
 		"simple-svelte-autocomplete": "^2.5.1",
 		"stripe": "^11.5.0",
 		"svelte-stripe": "^0.0.21"

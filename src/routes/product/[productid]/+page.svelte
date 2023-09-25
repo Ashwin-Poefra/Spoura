@@ -6,7 +6,7 @@
     let imgsrc: string;
     try {
         // @ts-ignore
-        imgsrc = product.imgurl.main;
+        imgsrc = product.imgurl;
     } catch {
         imgsrc = "";
     }

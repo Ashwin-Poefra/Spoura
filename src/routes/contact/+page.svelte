@@ -69,7 +69,7 @@
             {#each filter_list as product}
                     <div class="my-6">
                         <a href="/product/{product.id}" class="m-auto">
-                            <div class="card h-72 w-80 bg-center bg-cover -z-10" style='background-image: url({product.imgurl.main});'>
+                            <div class="card h-72 w-80 bg-center bg-cover -z-10" style='background-image: url({product.imgurl});'>
                                 <div class="card-body pb-40">
                                     <h2 class="card-title">{product.name}</h2>
                                     <div class="badge bg-blue-700 border-0">{product.category}</div>

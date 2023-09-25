@@ -3,8 +3,8 @@
     import Cookies from 'js-cookie';
     import '@google-pay/button-element';
 
-    import type { PageData } from './$types';
-    export let data: PageData;
+    import type { PageServerData } from './$types';
+    export let data: PageServerData;
 
     let cart_num: number = 0;
     let cart_products: any = [];
