@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import type { ServerLoadEvent } from '@sveltejs/kit';
 import { prisma } from '../prisma';
 import { getDbSession } from '../functions/getdbSession';
+import type { Product } from '@prisma/client';
 
 
 export const load = (async ( request ) => {
@@ -17,15 +18,24 @@ export const load = (async ( request ) => {
     let data = await getDbSession(request);
 
     let subtotal = 0;
-    data?.cartProducts.forEach((product) => {
+    let cartproducts: Product[] = []
+    if (data?.cartProducts) {
+        cartproducts = data.cartProducts
+    }
+    cartproducts.forEach((product) => {
         subtotal = subtotal + parseFloat(product.price.toString())
     })
+
+    let favproducts: Product[] = []
+    if (data?.favouriteProducts) {
+        favproducts = data.favouriteProducts
+    }
 
     return {
         all: JSON.stringify(all),
         base_url: process.env.BASE_URL,
-        cartProducts: JSON.stringify(data?.cartProducts),
-        favouriteProducts:  JSON.stringify(data?.favouriteProducts),
+        cartProducts: JSON.stringify(cartproducts),
+        favouriteProducts:  JSON.stringify(favproducts),
         cartSubtotal: subtotal
     };
 

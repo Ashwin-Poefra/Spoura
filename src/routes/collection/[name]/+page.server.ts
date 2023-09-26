@@ -13,7 +13,7 @@ export const load = (async ({ params }) => {
 
     if (collection) {
         return {
-            collection: collection
+            collection: JSON.stringify(collection)
         }
     } else {
         return {

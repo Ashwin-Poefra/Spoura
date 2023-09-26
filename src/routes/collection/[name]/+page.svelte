@@ -3,7 +3,7 @@
     import type { PageServerData } from './$types';
     export let data: PageServerData;
     // @ts-ignore
-    const collection: Collection = data.collection;
+    const collection: Collection = JSON.parse(data.collection);
 </script>
 
 {#if collection}

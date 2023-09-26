@@ -7,7 +7,6 @@
   export let data: LayoutData;
 
   const all = data.all;
-  // @ts-ignore
   const parse_all = JSON.parse(all);
   let namearr: any[] = [];
   for(let i = 0; i < parse_all.length; i++) {
@@ -364,7 +363,7 @@
       <br />
       <a class="link link-hover p-4" href="https://github.com/Matthew-Harvey" target="_blank" rel="noreferrer">Github</a>
       <a class="link link-hover p-4" href="https://mharvey.vercel.app/" target="_blank" rel="noreferrer">Portfolio</a>
-      <a class="link link-hover p-4" href="https://www.linkedin.com/in/m-harvey/" target="_blank" rel="noreferrer">Linkedin</a>
+      <a class="link link-hover p-4" href="https://www.linkedin.com/in/mtlh/" target="_blank" rel="noreferrer">Linkedin</a>
     </div>
   </div> 
 </footer>

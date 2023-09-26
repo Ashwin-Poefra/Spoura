@@ -30,25 +30,43 @@ model Session {
   @@unique([id, sessionString])
 }
 
-model Collection {
-  id       Int       @id @default(autoincrement())
-  name     String    @db.VarChar(50)
-  url_slug String
-  banner   String
-  products Product[]
+model Brand {
+  id          Int          @id @default(autoincrement())
+  name        String       @db.VarChar(50)
+  url_slug    String
+  icon       String       @db.LongText
+  banner      String       @db.LongText
+  description String       @db.LongText
+  collection  Collection[]
+  product     Product[]
 
-  @@unique([id, name, url_slug, banner])
+  @@unique([id, name, url_slug])
+}
+
+model Collection {
+  id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(50)
+  url_slug    String
+  banner      String    @db.LongText
+  description String    @db.LongText
+  products    Product[]
+  brand       Brand?    @relation(fields: [brandId], references: [id])
+  brandId     Int?
+
+  @@unique([id, name, url_slug])
+  @@index([brandId])
 }
 
 model Product {
   id          Int         @id @default(autoincrement())
   name        String      @db.VarChar(50)
   price       Decimal     @db.Decimal(10, 2)
-  imgurl      String
+  imgurl      String      @db.LongText
   colour      Json
   fit         String
   size        String?
-  brand       String      @db.VarChar(50)
+  brand       Brand       @relation(fields: [brandId], references: [id])
+  brandId     Int
   category    String      @default("Mens")
   col_banner  String?
   col_id      Int?
@@ -56,12 +74,13 @@ model Product {
   col_slug    String?
   description String?     @db.LongText
   quantity    Int?
-  collection  Collection? @relation(fields: [col_id, col_name, col_slug, col_banner], references: [id, name, url_slug, banner], map: "collection_fk")
+  collection  Collection? @relation(fields: [col_id, col_name, col_slug], references: [id, name, url_slug], map: "collection_fk")
   inCart      Session[]   @relation("inCart")
   inFavourite Session[]   @relation("inFavourite")
 
   @@unique([id])
   @@index([col_id, col_name, col_slug, col_banner])
+  @@index([brandId])
 }
 
 enum Role {
