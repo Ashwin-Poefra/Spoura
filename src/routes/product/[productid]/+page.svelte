@@ -23,6 +23,7 @@
     import { AddFavProduct } from '../../../functions/AddFavProduct';
     import { RemoveFavProduct } from '../../../functions/RemoveFavProduct';
     import { writable, type Writable } from 'svelte/store';
+  import { AddCartProduct } from '../../../functions/AddCartProduct';
 
     let CartProducts: Product[];
 	cartProducts.subscribe((product) => {
@@ -31,16 +32,19 @@
 
     export const isfavourite: Writable<boolean> = writable();
     let isFavourite: boolean = false;
-    if (data.urlid == product.id) {
-        isFavourite = true;
-    }
+    let FirstRun: boolean = true;
     isfavourite.subscribe((bool)=>{
         isFavourite = bool
     })
-
     let FavProducts: Product[];
-	favouriteProducts.subscribe((product) => {
-		FavProducts = product;
+	favouriteProducts.subscribe((prod) => {
+		FavProducts = prod;
+        prod.forEach((item)=>{
+            if (product.id == item.id && FirstRun) {
+                isfavourite.set(true)
+                FirstRun = false;
+            }
+        })
 	});
 
     const toggleFavourite = async () => {
@@ -51,15 +55,8 @@
         }
         isfavourite.set(!isFavourite)
     }
-
-    const addProduct = async () => {
-        let original_cookie: any = "";
-        if (Cookies.get("spoura_cart") != undefined) {
-            original_cookie = Cookies.get("spoura_cart");
-            Cookies.set("spoura_cart", original_cookie + "//" + product?.id, {sameSite: "strict", secure: true, expires: 500});
-        } else {
-            Cookies.set("spoura_cart", original_cookie + "//" + product?.id, {sameSite: "strict", secure: true, expires: 500});
-        }
+    const toggleProduct = async () => {
+        await AddCartProduct(product.id)
     }
 </script>
 
@@ -106,7 +103,7 @@
                 <button class="w-4 p-2" on:click={increment}>+</button>
             </div>
             <div class="flex space-x-2 rounded-xl p-2 m-auto">
-                <a href="/product/{product.id}" data-sveltekit-reload><button class="btn bg-gradient-to-r from-blue-500 to-blue-900 text-white rounded-lg hover:scale-110 border-0 py-2 px-4 my-4" on:click={addProduct}>ADD TO CART</button></a>
+                <button class="btn bg-gradient-to-r from-blue-500 to-blue-900 text-white rounded-lg hover:scale-110 border-0 py-2 px-4 my-4" on:click={async() => await toggleProduct()}>ADD TO CART</button>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
                 <!-- svelte-ignore a11y-label-has-associated-control -->
                 <!-- svelte-ignore a11y-click-events-have-key-events -->

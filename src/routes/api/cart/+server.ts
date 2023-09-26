@@ -39,8 +39,13 @@ export async function GET(request: RequestEvent) {
         cartProductsIDS.push({id: product.id})
         subtotal = subtotal + parseFloat(product.price.toString())
       })
-      cartProductsIDS.push({id: firstproduct.id})
-      subtotal = subtotal + parseFloat(firstproduct.price.toString())
+
+      const updatedCartProducts = [...sessionId!.cartProducts];
+      if (!cartProductsIDS.some(obj => obj.id === firstproduct.id)) {
+        cartProductsIDS.push({id: firstproduct.id})
+        updatedCartProducts.push(firstproduct)
+        subtotal = subtotal + parseFloat(firstproduct.price.toString())
+      }
 
       if (sessionId) { 
         const updatedSession = await prisma.session.update({
@@ -59,7 +64,6 @@ export async function GET(request: RequestEvent) {
         console.log(updatedSession)
       }
 
-      const updatedCartProducts = [...sessionId!.cartProducts, firstproduct];
       return new Response(JSON.stringify({cartProducts: updatedCartProducts, subtotal: subtotal}))
       
       // async function AddCartProduct (productnum: number, add: boolean) {
@@ -75,7 +79,7 @@ export async function GET(request: RequestEvent) {
       include: {
         cartProducts: true
       }
-    }); 
+    });
 
     const cartProductsIDS: {id: number}[]  = [];
     const cartProductsFinal: Product[] = [];

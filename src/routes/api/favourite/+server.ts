@@ -37,7 +37,12 @@ export async function GET(request: RequestEvent) {
       sessionId!.favouriteProducts.forEach((product) => {
         favProductsIDS.push({id: product.id})
       })
-      favProductsIDS.push({id: firstproduct.id})
+      const updatedFavProducts = [...sessionId!.favouriteProducts];
+
+      if (!favProductsIDS.some(obj => obj.id === firstproduct.id)) {
+        updatedFavProducts.push(firstproduct)
+        favProductsIDS.push({id: firstproduct.id})
+      }
 
       if (sessionId) { 
         const updatedSession = await prisma.session.update({
@@ -56,7 +61,6 @@ export async function GET(request: RequestEvent) {
         console.log(updatedSession)
       }
 
-      const updatedFavProducts = [...sessionId!.favouriteProducts, firstproduct];
       return new Response(JSON.stringify(updatedFavProducts))
       
     }
