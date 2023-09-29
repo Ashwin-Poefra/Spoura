@@ -1,38 +1,45 @@
-# create-svelte
+# Spoura
+![Thumbnail Image](https://mtlh.vercel.app/assets/spoura_portfolio.e11818e6_Z1HFFFD.webp)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## About
+Fully featured ecommerce platform, favourite and buy shoes from the best brands. Payment intergrated with Google Pay API and authentication using JWT sessions.
 
-## Creating a project
+## Demo
+This project is deployed directly onto Vercel. 
+[spoura.vercel.app](https://spoura.vercel.app/)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Technologies
+- TailwindCSS
+- Typescript
+- Svelte (+ SvelteKit)
+- Prisma
+- PlanetScale (MySQL)
+- JWT
+- GooglePay API
+- Vercel (hosting)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## How to deploy locally
+Follow the steps below:
+1. Download code from this repository.
+2. Install every dependency.
+```typescript
+npm install
+```
+3. Create api keys from the following sources:
+    `. [PlanetScale](https://app.planetscale.com/)
 
-# create a new project in my-app
-npm create svelte@latest my-app
+4. Get all required keys setup in a .env file.
+```typescript
+DATABASE_URL='planetscalegeneratedconnectionstring'
+BASE_URL='http://localhost:3000/'
+JWTSECRET="anylengthstring"
+```
+The BASE_URL must be configured based on which port you are using, when creating a hosted version this must be update to be the final url eg. https://spoura.vercel.app/
+
+5. Generate prisma client and run locally
+```typescript
+ npx prisma generate
+ npm run dev
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+6. Enjoy!
