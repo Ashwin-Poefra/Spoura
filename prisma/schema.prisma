@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
+  provider     = "postgresql"
   url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
@@ -34,9 +34,9 @@ model Brand {
   id          Int          @id @default(autoincrement())
   name        String       @db.VarChar(50)
   url_slug    String
-  icon       String       @db.LongText
-  banner      String       @db.LongText
-  description String       @db.LongText
+  icon       String
+  banner      String
+  description String
   collection  Collection[]
   product     Product[]
 
@@ -47,8 +47,8 @@ model Collection {
   id          Int       @id @default(autoincrement())
   name        String    @db.VarChar(50)
   url_slug    String
-  banner      String    @db.LongText
-  description String    @db.LongText
+  banner      String
+  description String
   products    Product[]
   brand       Brand?    @relation(fields: [brandId], references: [id])
   brandId     Int?
@@ -61,7 +61,7 @@ model Product {
   id          Int         @id @default(autoincrement())
   name        String      @db.VarChar(50)
   price       Decimal     @db.Decimal(10, 2)
-  imgurl      String      @db.LongText
+  imgurl      String
   colour      Json
   fit         String
   size        String?
@@ -72,7 +72,7 @@ model Product {
   col_id      Int?
   col_name    String?
   col_slug    String?
-  description String?     @db.LongText
+  description String?
   quantity    Int?
   collection  Collection? @relation(fields: [col_id, col_name, col_slug], references: [id, name, url_slug], map: "collection_fk")
   inCart      Session[]   @relation("inCart")

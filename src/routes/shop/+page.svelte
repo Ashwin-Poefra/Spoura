@@ -7,7 +7,8 @@
     // @ts-ignore
     import AutoComplete from "simple-svelte-autocomplete";
     import { page } from '$app/stores';
-  import { goto } from '$app/navigation';
+    import { goto } from '$app/navigation';
+
     let sort_arr = ["Latest", "Trending", "Price Low->High", "Price High->Low"] as const;
     let sort_select: string | null = $page.url.searchParams.get('sort');
     if (sort_select == null ){sort_select = "All";}
@@ -20,9 +21,10 @@
     async function filterChange() {
         let showlist = [];
         for (let product in all_list) {
-            if (brand_select != "All" && type_select != "All") {if (all_list[product].category == type_select && all_list[product].brand == brand_select){showlist.push(all_list[product]);}
+            console.log(all_list[product].brand.name, brand_select)
+            if (brand_select != "All" && type_select != "All") {if (all_list[product].category == type_select && all_list[product].brand.name == brand_select){showlist.push(all_list[product]);}
             } else if (brand_select == "All" && type_select != "All") {if (all_list[product].category == type_select){showlist.push(all_list[product]);}
-            } else if (brand_select != "All" && type_select == "All" ) {if (all_list[product].brand == brand_select){showlist.push(all_list[product]);}
+            } else if (brand_select != "All" && type_select == "All" ) {if (all_list[product].brand.name == brand_select){showlist.push(all_list[product]);}
             } else {showlist.push(all_list[product]);}
         }
         filter_list = showlist;
